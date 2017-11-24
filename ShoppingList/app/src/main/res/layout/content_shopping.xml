@@ -5,16 +5,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="us.forgeinnovations.deltaman.shoppinglist.ShoppingActivity"
+    tools:context="us.forgeinnovations.deltaman.ui.ShoppingActivity"
     tools:showIn="@layout/activity_shopping">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <Spinner
+        android:id="@+id/spinner_shoppingtype"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="16dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+    <EditText
+        android:id="@+id/editText_itemname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Item Name"
+        android:inputType="textMultiLine"
+        app:layout_constraintLeft_toLeftOf="@+id/spinner_shoppingtype"
+        app:layout_constraintRight_toRightOf="@+id/spinner_shoppingtype"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_shoppingtype" />
+
+    <EditText
+        android:id="@+id/editText_itemdesc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Item Description or URL"
+        android:inputType="textMultiLine"
+        app:layout_constraintLeft_toLeftOf="@+id/editText_itemname"
+        app:layout_constraintRight_toRightOf="@+id/editText_itemname"
+        app:layout_constraintTop_toBottomOf="@+id/editText_itemname" />
 
 </android.support.constraint.ConstraintLayout>

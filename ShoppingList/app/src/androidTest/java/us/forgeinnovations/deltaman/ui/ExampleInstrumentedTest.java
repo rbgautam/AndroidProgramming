@@ -1,4 +1,4 @@
-package us.forgeinnovations.deltaman.shoppinglist;
+package us.forgeinnovations.deltaman.ui;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

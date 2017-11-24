@@ -1,4 +1,4 @@
-package us.forgeinnovations.deltaman.shoppinglist;
+package us.forgeinnovations.deltaman.ui;
 
 import org.junit.Test;
 
