@@ -1,5 +1,6 @@
 package us.forgeinnovations.deltaman.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -29,8 +30,8 @@ public class ShoppingListActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent  = new Intent(ShoppingListActivity.this,ShoppingActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -39,7 +40,7 @@ public class ShoppingListActivity extends AppCompatActivity {
 
     private void initializeDisplayContent() {
 
-        ListView listItems = (ListView) findViewById(R.id.list_items);
+        final ListView listItems = (ListView) findViewById(R.id.list_items);
 
         List<NoteInfo> items = DataManager.getInstance().getNotes();
 
@@ -48,9 +49,14 @@ public class ShoppingListActivity extends AppCompatActivity {
 
         listItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Snackbar.make(view, "ItemClicked", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Intent intent =  new Intent(ShoppingListActivity.this,ShoppingActivity.class);
+
+                NoteInfo item = (NoteInfo) listItems.getItemAtPosition(position);
+
+                intent.putExtra(ShoppingActivity.ITEM_INFO,item);
+
+                startActivity(intent);
             }
         });
     }

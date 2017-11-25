@@ -1,5 +1,6 @@
 package us.forgeinnovations.deltaman.models;
 
+import android.icu.text.DateFormat;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -7,7 +8,7 @@ import android.os.Parcelable;
  * Created by Deltaman.
  */
 
-public final class ModuleInfo {
+public final class ModuleInfo implements Parcelable{
     private final String mModuleId;
     private final String mTitle;
     private boolean mIsComplete = false;
@@ -20,6 +21,12 @@ public final class ModuleInfo {
         mModuleId = moduleId;
         mTitle = title;
         mIsComplete = isComplete;
+    }
+
+    private ModuleInfo(Parcel parcel) {
+        mTitle = parcel.readString();
+        mModuleId = parcel.readString();
+        mIsComplete = parcel.readByte()== 0x1?true:false;
     }
 
     public String getModuleId() {
@@ -58,4 +65,30 @@ public final class ModuleInfo {
         return mModuleId.hashCode();
     }
 
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(mTitle);
+        parcel.writeString(mModuleId);
+        parcel.writeByte((byte)(mIsComplete?1:0));
+    }
+
+    public final static Parcelable.Creator<ModuleInfo> CREATOR =
+            new Creator<ModuleInfo>() {
+                @Override
+                public ModuleInfo createFromParcel(Parcel parcel) {
+                    ModuleInfo moduleInfo =  new ModuleInfo(parcel);
+                    return moduleInfo;
+                }
+
+                @Override
+                public ModuleInfo[] newArray(int size) {
+                    return new ModuleInfo[size];
+                }
+            };
 }
