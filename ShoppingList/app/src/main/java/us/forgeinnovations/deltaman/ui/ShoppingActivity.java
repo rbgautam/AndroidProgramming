@@ -29,6 +29,10 @@ public class ShoppingActivity extends AppCompatActivity {
     private EditText mTextItemDesc;
     private int mNotePosition;
     private boolean mIsCanceling;
+    private ArrayAdapter<CourseInfo> mAdapterCourses;
+    private String mOriginalNoteCourseId;
+    private String mOriginalItemDesc;
+    private String mOriginalItemTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +45,15 @@ public class ShoppingActivity extends AppCompatActivity {
 
         List<CourseInfo> courses = DataManager.getInstance().getCourses();
 
-        ArrayAdapter<CourseInfo> adapterCourses =  new ArrayAdapter<CourseInfo>(this,android.R.layout.simple_spinner_item,courses);
+        mAdapterCourses = new ArrayAdapter<CourseInfo>(this,android.R.layout.simple_spinner_item,courses);
 
-        adapterCourses.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mAdapterCourses.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        mSpinnerShoppingType.setAdapter(adapterCourses);
+        mSpinnerShoppingType.setAdapter(mAdapterCourses);
         
         readDisplayStateValues();
 
+        saveOriginalNotesValues();
 
         if(!mIsNewNote){
             mTextItemName = (EditText) findViewById(R.id.editText_itemname);
@@ -59,6 +64,15 @@ public class ShoppingActivity extends AppCompatActivity {
         }else{
             createNewNote();
         }
+
+    }
+
+    private void saveOriginalNotesValues() {
+        if(mIsNewNote)
+            return;
+        mOriginalNoteCourseId = mItem.getCourse().getCourseId();
+        mOriginalItemDesc = mItem.getText();
+        mOriginalItemTitle = mItem.getTitle();
 
     }
 
@@ -90,8 +104,10 @@ public class ShoppingActivity extends AppCompatActivity {
         //mItem = intent.getParcelableExtra(ITEM_INFO);
 
         mItemPosition  =  intent.getIntExtra(ITEM_POSITION, POSITION_NOT_SET);
-        mItem = DataManager.getInstance().getNotes().get(mItemPosition);
         mIsNewNote =  ((mItemPosition == POSITION_NOT_SET) ? true:false);
+
+        if(mItemPosition != -1)
+            mItem = DataManager.getInstance().getNotes().get(mItemPosition);
 
 
     }
@@ -125,15 +141,30 @@ public class ShoppingActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        mAdapterCourses.notifyDataSetChanged();
+    }
+
+    @Override
     protected void onPause() {
         super.onPause();
         if(mIsCanceling){
             if(mIsNewNote){
-                DataManager.getInstance().removeNote(mItemPosition);
+                DataManager.getInstance().removeNote(mNotePosition);
+            }else{
+                restoreOriginalValues();
             }
         }
         else
             saveNote();
+    }
+
+    private void restoreOriginalValues() {
+        CourseInfo course = DataManager.getInstance().getCourse(mOriginalNoteCourseId);
+        mItem.setCourse(course);
+        mItem.setTitle(mOriginalItemTitle);
+        mItem.setText(mOriginalItemDesc);
     }
 
     private void saveNote() {
