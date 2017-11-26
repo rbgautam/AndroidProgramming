@@ -18,8 +18,15 @@ import us.forgeinnovations.deltaman.models.*;
 public class ShoppingActivity extends AppCompatActivity {
 
     public static final String ITEM_INFO = "us.forgeinnovations.deltaman.ui.ITEM_INFO";
+    public static final String ITEM_POSITION = "us.forgeinnovations.deltaman.ui.ITEM_POSITION";
+    public static final int POSITION_NOT_SET = -1;
+
     private NoteInfo mItem;
     private boolean mIsNewNote;
+    private int mItemPosition;
+    private Spinner shoppingType;
+    private EditText textItemName;
+    private EditText textItemDesc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +35,7 @@ public class ShoppingActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Spinner shoppingType = (Spinner) findViewById(R.id.spinner_shoppingtype);
+        shoppingType = (Spinner) findViewById(R.id.spinner_shoppingtype);
 
         List<CourseInfo> courses = DataManager.getInstance().getCourses();
 
@@ -42,16 +49,22 @@ public class ShoppingActivity extends AppCompatActivity {
 
 
         if(!mIsNewNote){
-            EditText textItemName =  (EditText) findViewById(R.id.editText_itemname);
-            EditText textItemDesc =  (EditText) findViewById(R.id.editText_itemdesc);
-            displayNote(shoppingType,textItemName,textItemDesc);
+            textItemName = (EditText) findViewById(R.id.editText_itemname);
+            textItemDesc = (EditText) findViewById(R.id.editText_itemdesc);
+            displayNote(shoppingType, textItemName, textItemDesc);
+
+
         }
 
     }
 
     private void displayNote(Spinner shoppingType, EditText textItemName, EditText textItemDesc) {
         List<CourseInfo> courses = DataManager.getInstance().getCourses();
-        int itemIndex = courses.indexOf(mItem.getCourse());
+
+        int itemIndex = POSITION_NOT_SET;
+
+        itemIndex = courses.indexOf(mItem.getCourse());
+
 
         shoppingType.setSelection(itemIndex);
 
@@ -64,9 +77,11 @@ public class ShoppingActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        mItem = intent.getParcelableExtra(ITEM_INFO);
+        //mItem = intent.getParcelableExtra(ITEM_INFO);
 
-        mIsNewNote =  (mItem == null ? true:false);
+        mItemPosition  =  intent.getIntExtra(ITEM_POSITION, POSITION_NOT_SET);
+        mItem = DataManager.getInstance().getNotes().get(mItemPosition);
+        mIsNewNote =  ((mItemPosition == POSITION_NOT_SET) ? true:false);
 
 
     }
@@ -86,10 +101,15 @@ public class ShoppingActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_send_mail) {
+            sendEmail();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void sendEmail() {
+
     }
 }

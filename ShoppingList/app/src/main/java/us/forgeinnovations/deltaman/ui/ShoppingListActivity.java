@@ -54,7 +54,9 @@ public class ShoppingListActivity extends AppCompatActivity {
 
                 NoteInfo item = (NoteInfo) listItems.getItemAtPosition(position);
 
-                intent.putExtra(ShoppingActivity.ITEM_INFO,item);
+                //intent.putExtra(ShoppingActivity.ITEM_INFO,item);
+
+                intent.putExtra(ShoppingActivity.ITEM_POSITION, position);
 
                 startActivity(intent);
             }
