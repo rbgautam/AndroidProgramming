@@ -21,6 +21,11 @@ public class ShoppingActivity extends AppCompatActivity {
     public static final String ITEM_POSITION = "us.forgeinnovations.deltaman.ui.ITEM_POSITION";
     public static final int POSITION_NOT_SET = -1;
 
+    public static final String ORIGINAL_NOTE_COURSE_ID = "us.forgeinnovations.deltaman.ui.ORIGINAL_NOTE_COURSE_ID";
+    public static final String ORIGINAL_ITEM_TITLE = "us.forgeinnovations.deltaman.ui.ORIGINAL_ITEM_TITLE";
+    public static final String ORIGINAL_ITEM_TEXT = "us.forgeinnovations.deltaman.ui.ORIGINAL_ITEM_TEXT";
+
+
     private NoteInfo mItem;
     private boolean mIsNewNote;
     private int mItemPosition;
@@ -33,6 +38,14 @@ public class ShoppingActivity extends AppCompatActivity {
     private String mOriginalNoteCourseId;
     private String mOriginalItemDesc;
     private String mOriginalItemTitle;
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(ORIGINAL_NOTE_COURSE_ID,mOriginalNoteCourseId);
+        outState.putString(ORIGINAL_ITEM_TITLE, mOriginalItemTitle);
+        outState.putString(ORIGINAL_ITEM_TEXT,mOriginalItemDesc);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +65,10 @@ public class ShoppingActivity extends AppCompatActivity {
         mSpinnerShoppingType.setAdapter(mAdapterCourses);
         
         readDisplayStateValues();
-
-        saveOriginalNotesValues();
+        if(savedInstanceState == null)
+            saveOriginalNotesValues();
+        else
+            restoreOriginalStateValues(savedInstanceState);
 
         if(!mIsNewNote){
             mTextItemName = (EditText) findViewById(R.id.editText_itemname);
@@ -65,6 +80,12 @@ public class ShoppingActivity extends AppCompatActivity {
             createNewNote();
         }
 
+    }
+
+    private void restoreOriginalStateValues(Bundle savedInstanceState) {
+        mOriginalNoteCourseId = savedInstanceState.getString(ORIGINAL_NOTE_COURSE_ID);
+        mOriginalItemTitle = savedInstanceState.getString(ORIGINAL_ITEM_TITLE);
+        mOriginalItemDesc =  savedInstanceState.getString(ORIGINAL_ITEM_TEXT);
     }
 
     private void saveOriginalNotesValues() {
