@@ -24,9 +24,9 @@ public class ShoppingActivity extends AppCompatActivity {
     private NoteInfo mItem;
     private boolean mIsNewNote;
     private int mItemPosition;
-    private Spinner shoppingType;
-    private EditText textItemName;
-    private EditText textItemDesc;
+    private Spinner mSpinnerShoppingType;
+    private EditText mTextItemName;
+    private EditText mTextItemDesc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,7 @@ public class ShoppingActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        shoppingType = (Spinner) findViewById(R.id.spinner_shoppingtype);
+        mSpinnerShoppingType = (Spinner) findViewById(R.id.spinner_shoppingtype);
 
         List<CourseInfo> courses = DataManager.getInstance().getCourses();
 
@@ -43,15 +43,15 @@ public class ShoppingActivity extends AppCompatActivity {
 
         adapterCourses.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        shoppingType.setAdapter(adapterCourses);
+        mSpinnerShoppingType.setAdapter(adapterCourses);
         
         readDisplayStateValues();
 
 
         if(!mIsNewNote){
-            textItemName = (EditText) findViewById(R.id.editText_itemname);
-            textItemDesc = (EditText) findViewById(R.id.editText_itemdesc);
-            displayNote(shoppingType, textItemName, textItemDesc);
+            mTextItemName = (EditText) findViewById(R.id.editText_itemname);
+            mTextItemDesc = (EditText) findViewById(R.id.editText_itemdesc);
+            displayNote(mSpinnerShoppingType, mTextItemName, mTextItemDesc);
 
 
         }
@@ -110,6 +110,17 @@ public class ShoppingActivity extends AppCompatActivity {
     }
 
     private void sendEmail() {
+        CourseInfo course = (CourseInfo) mSpinnerShoppingType.getSelectedItem();
+        String subject = mTextItemName.getText().toString();
+        String emailBody = "Check out what I learned\""+ course.getTitle() + "\"\n" + mTextItemDesc.getText().toString();
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("message/rfc2822");
+
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, emailBody);
+
+        startActivity(intent);
 
     }
 }
