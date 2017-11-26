@@ -27,6 +27,8 @@ public class ShoppingActivity extends AppCompatActivity {
     private Spinner mSpinnerShoppingType;
     private EditText mTextItemName;
     private EditText mTextItemDesc;
+    private int mNotePosition;
+    private boolean mIsCanceling;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +56,16 @@ public class ShoppingActivity extends AppCompatActivity {
             displayNote(mSpinnerShoppingType, mTextItemName, mTextItemDesc);
 
 
+        }else{
+            createNewNote();
         }
 
+    }
+
+    private void createNewNote() {
+        DataManager dm = DataManager.getInstance();
+        mNotePosition = dm.createNewNote();
+        mItem = dm.getNotes().get(mNotePosition);
     }
 
     private void displayNote(Spinner shoppingType, EditText textItemName, EditText textItemDesc) {
@@ -106,7 +116,30 @@ public class ShoppingActivity extends AppCompatActivity {
             return true;
         }
 
+        if(id == R.id.action_cancel){
+            mIsCanceling = true;
+            finish();
+        }
+
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(mIsCanceling){
+            if(mIsNewNote){
+                DataManager.getInstance().removeNote(mItemPosition);
+            }
+        }
+        else
+            saveNote();
+    }
+
+    private void saveNote() {
+        mItem.setCourse((CourseInfo) mSpinnerShoppingType.getSelectedItem());
+        mItem.setTitle(mTextItemName.getText().toString());
+        mItem.setText(mTextItemDesc.getText().toString());
     }
 
     private void sendEmail() {
