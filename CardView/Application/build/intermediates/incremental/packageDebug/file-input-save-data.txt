@@ -1,0 +1,30 @@
+#Internal package file, do not edit.
+#Mon Nov 27 13:56:41 CST 2017
+2.base=C\:\\Users\\RGautam\\Documents\\AndroidProgramming\\CardView\\Application\\build\\intermediates\\res\\resources-debug.ap_
+5.file=C\:\\Users\\RGautam\\Documents\\AndroidProgramming\\CardView\\Application\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout-v21\\fragment_card_view.xml
+5.set=ANDROID_RESOURCE
+3.base=C\:\\Users\\RGautam\\Documents\\AndroidProgramming\\CardView\\Application\\build\\intermediates\\res\\resources-debug.ap_
+6.file=C\:\\Users\\RGautam\\Documents\\AndroidProgramming\\CardView\\Application\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\fragment_card_view.xml
+2.set=ANDROID_RESOURCE
+4.base=C\:\\Users\\RGautam\\Documents\\AndroidProgramming\\CardView\\Application\\build\\intermediates\\res\\resources-debug.ap_
+7.file=C\:\\Users\\RGautam\\Documents\\AndroidProgramming\\CardView\\Application\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_65352b23987f2e0ffb4d8453a659b2b81f91680b\\classes.dex
+7.set=DEX
+count=9
+0.file=C\:\\Users\\RGautam\\Documents\\AndroidProgramming\\CardView\\Application\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_d17157362ad110623dfdd7219687c8a84f692cc5\\classes.dex
+5.base=C\:\\Users\\RGautam\\Documents\\AndroidProgramming\\CardView\\Application\\build\\intermediates\\res\\resources-debug.ap_
+8.file=C\:\\Users\\RGautam\\Documents\\AndroidProgramming\\CardView\\Application\\build\\intermediates\\res\\resources-debug.ap_\\resources.arsc
+4.set=ANDROID_RESOURCE
+6.base=C\:\\Users\\RGautam\\Documents\\AndroidProgramming\\CardView\\Application\\build\\intermediates\\res\\resources-debug.ap_
+1.file=C\:\\Users\\RGautam\\Documents\\AndroidProgramming\\CardView\\Application\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xxhdpi-v4\\ic_launcher.png
+1.set=ANDROID_RESOURCE
+7.base=C\:\\Users\\RGautam\\Documents\\AndroidProgramming\\CardView\\Application\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_65352b23987f2e0ffb4d8453a659b2b81f91680b
+2.file=C\:\\Users\\RGautam\\Documents\\AndroidProgramming\\CardView\\Application\\build\\intermediates\\res\\resources-debug.ap_\\AndroidManifest.xml
+6.set=ANDROID_RESOURCE
+0.base=C\:\\Users\\RGautam\\Documents\\AndroidProgramming\\CardView\\Application\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_d17157362ad110623dfdd7219687c8a84f692cc5
+8.base=C\:\\Users\\RGautam\\Documents\\AndroidProgramming\\CardView\\Application\\build\\intermediates\\res\\resources-debug.ap_
+3.file=C\:\\Users\\RGautam\\Documents\\AndroidProgramming\\CardView\\Application\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\activity_card_view.xml
+3.set=ANDROID_RESOURCE
+1.base=C\:\\Users\\RGautam\\Documents\\AndroidProgramming\\CardView\\Application\\build\\intermediates\\res\\resources-debug.ap_
+4.file=C\:\\Users\\RGautam\\Documents\\AndroidProgramming\\CardView\\Application\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-hdpi-v4\\tile.9.png
+8.set=ANDROID_RESOURCE
+0.set=DEX

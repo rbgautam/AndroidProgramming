@@ -1,0 +1,7 @@
+#Mon Nov 27 13:56:39 CST 2017
+base.0=C\:\\Users\\RGautam\\Documents\\AndroidProgramming\\CardView\\Application\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\support-annotations-24.0.0_a9cda8811f9f1fc4d682b145c149bac4fdecd56a
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=C\:\\Users\\RGautam\\Documents\\AndroidProgramming\\CardView\\Application\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_32935025102357fc020184fdba1a4ef8b7b8e78b\\classes.dex
+base.1=C\:\\Users\\RGautam\\Documents\\AndroidProgramming\\CardView\\Application\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_32935025102357fc020184fdba1a4ef8b7b8e78b
+file.0=C\:\\Users\\RGautam\\Documents\\AndroidProgramming\\CardView\\Application\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\support-annotations-24.0.0_a9cda8811f9f1fc4d682b145c149bac4fdecd56a\\classes.dex

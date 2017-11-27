@@ -1,0 +1,28 @@
+[
+    {
+        "outputFile": "C:\\Users\\RGautam\\Documents\\AndroidProgramming\\CardView\\Application\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endLine": 4,
+                    "endColumn": 12,
+                    "endOffset": 200
+                },
+                "from": {
+                    "file": "C:\\Users\\RGautam\\.android\\build-cache\\5c72bd94a8e60dccd96e2f356a9dad23847bcf16\\output\\res\\values-v23\\values-v23.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endLine": 4,
+                        "endColumn": 12,
+                        "endOffset": 200
+                    }
+                }
+            }
+        ]
+    }
+]

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\RGautam\Documents\AndroidProgramming\CardView\Application\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="C:\Users\RGautam\Documents\AndroidProgramming\CardView\Application\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_65352b23987f2e0ffb4d8453a659b2b81f91680b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\RGautam\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.0.0\support-annotations-24.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="C:\Users\RGautam\Documents\AndroidProgramming\CardView\Application\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.0.0_a9cda8811f9f1fc4d682b145c149bac4fdecd56a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\RGautam\Documents\AndroidProgramming\CardView\Application\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="7edba90e293e67393dd8f762e479c52e3e615eb7">
+        <dex dex="C:\Users\RGautam\Documents\AndroidProgramming\CardView\Application\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_d17157362ad110623dfdd7219687c8a84f692cc5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\RGautam\.android\build-cache\5c72bd94a8e60dccd96e2f356a9dad23847bcf16\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="8dd49930e4f9dde1a42d37e362b9fea8b1b69c0d">
+        <dex dex="C:\Users\RGautam\Documents\AndroidProgramming\CardView\Application\build\intermediates\transforms\dex\debug\folders\1000\10\classes_32935025102357fc020184fdba1a4ef8b7b8e78b\classes.dex" />
+    </item>
+
+</items>
