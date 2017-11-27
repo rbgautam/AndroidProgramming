@@ -12,9 +12,9 @@ import java.util.List;
 public final class CourseInfo implements Parcelable {
     private final String mCourseId;
     private final String mTitle;
-    private final List<ModuleInfo> mModules;
+    private final List<ProductInfo> mModules;
 
-    public CourseInfo(String courseId, String title, List<ModuleInfo> modules) {
+    public CourseInfo(String courseId, String title, List<ProductInfo> modules) {
         mCourseId = courseId;
         mTitle = title;
         mModules = modules;
@@ -23,8 +23,8 @@ public final class CourseInfo implements Parcelable {
     private CourseInfo(Parcel parcel) {
         mTitle =parcel.readString();
         mCourseId = parcel.readString();
-        mModules = new ArrayList<ModuleInfo>();
-                parcel.readTypedList(mModules, ModuleInfo.CREATOR);
+        mModules = new ArrayList<ProductInfo>();
+                parcel.readTypedList(mModules, ProductInfo.CREATOR);
 
     }
 
@@ -36,7 +36,7 @@ public final class CourseInfo implements Parcelable {
         return mTitle;
     }
 
-    public List<ModuleInfo> getModules() {
+    public List<ProductInfo> getModules() {
         return mModules;
     }
 
@@ -54,10 +54,10 @@ public final class CourseInfo implements Parcelable {
             mModules.get(i).setComplete(status[i]);
     }
 
-    public ModuleInfo getModule(String moduleId) {
-        for(ModuleInfo moduleInfo : mModules) {
-            if(moduleId.equals(moduleInfo.getModuleId()))
-                return moduleInfo;
+    public ProductInfo getModule(String moduleId) {
+        for(ProductInfo productInfo : mModules) {
+            if(moduleId.equals(productInfo.getModuleId()))
+                return productInfo;
         }
         return null;
     }

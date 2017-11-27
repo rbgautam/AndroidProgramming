@@ -6,7 +6,6 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 import java.util.List;
 
-import us.forgeinnovations.deltaman.notes.ModuleInfo;
 
 /**
  * Created by 19680608Deltaman.
@@ -15,9 +14,9 @@ import us.forgeinnovations.deltaman.notes.ModuleInfo;
 public final class ShoplistInfo implements Parcelable {
     private final String mShoppingListId;
     private final String mShoppingListName;
-    private final List<ModuleInfo> mItems;
+    private final List<ProductInfo> mItems;
 
-    public ShoplistInfo(String courseId, String title, List<ModuleInfo> products) {
+    public ShoplistInfo(String courseId, String title, List<ProductInfo> products) {
         mShoppingListId = courseId;
         mShoppingListName = title;
         mItems = products;
@@ -26,8 +25,8 @@ public final class ShoplistInfo implements Parcelable {
     private ShoplistInfo(Parcel parcel) {
         mShoppingListName =parcel.readString();
         mShoppingListId = parcel.readString();
-        mItems = new ArrayList<ModuleInfo>();
-                parcel.readTypedList(mItems, ModuleInfo.CREATOR );
+        mItems = new ArrayList<ProductInfo>();
+                parcel.readTypedList(mItems, ProductInfo.CREATOR );
 
     }
 
@@ -39,7 +38,7 @@ public final class ShoplistInfo implements Parcelable {
         return mShoppingListName;
     }
 
-    public List<ModuleInfo> getModules() {
+    public List<ProductInfo> getModules() {
         return mItems;
     }
 
@@ -57,10 +56,10 @@ public final class ShoplistInfo implements Parcelable {
             mItems.get(i).setComplete(status[i]);
     }
 
-    public ModuleInfo getModule(String moduleId) {
-        for(ModuleInfo moduleInfo : mItems) {
-            if(moduleId.equals(moduleInfo.getModuleId()))
-                return moduleInfo;
+    public ProductInfo getModule(String moduleId) {
+        for(ProductInfo productInfo : mItems) {
+            if(moduleId.equals(productInfo.getModuleId()))
+                return productInfo;
         }
         return null;
     }
