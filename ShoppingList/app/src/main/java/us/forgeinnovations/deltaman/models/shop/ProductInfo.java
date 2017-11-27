@@ -1,6 +1,5 @@
-package us.forgeinnovations.deltaman.models;
+package us.forgeinnovations.deltaman.models.shop;
 
-import android.icu.text.DateFormat;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -8,22 +7,22 @@ import android.os.Parcelable;
  * Created by Deltaman.
  */
 
-public final class ModuleInfo implements Parcelable{
+public final class ProductInfo implements Parcelable{
     private final String mModuleId;
     private final String mTitle;
     private boolean mIsComplete = false;
 
-    public ModuleInfo(String moduleId, String title) {
+    public ProductInfo(String moduleId, String title) {
         this(moduleId, title, false);
     }
 
-    public ModuleInfo(String moduleId, String title, boolean isComplete) {
+    public ProductInfo(String moduleId, String title, boolean isComplete) {
         mModuleId = moduleId;
         mTitle = title;
         mIsComplete = isComplete;
     }
 
-    private ModuleInfo(Parcel parcel) {
+    private ProductInfo(Parcel parcel) {
         mTitle = parcel.readString();
         mModuleId = parcel.readString();
         mIsComplete = parcel.readByte()== 0x1?true:false;
@@ -55,7 +54,7 @@ public final class ModuleInfo implements Parcelable{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ModuleInfo that = (ModuleInfo) o;
+        ProductInfo that = (ProductInfo) o;
 
         return mModuleId.equals(that.mModuleId);
     }
@@ -78,17 +77,17 @@ public final class ModuleInfo implements Parcelable{
         parcel.writeByte((byte)(mIsComplete?1:0));
     }
 
-    public final static Parcelable.Creator<ModuleInfo> CREATOR =
-            new Creator<ModuleInfo>() {
+    public final static Creator<ProductInfo> CREATOR =
+            new Creator<ProductInfo>() {
                 @Override
-                public ModuleInfo createFromParcel(Parcel parcel) {
-                    ModuleInfo moduleInfo =  new ModuleInfo(parcel);
+                public ProductInfo createFromParcel(Parcel parcel) {
+                    ProductInfo moduleInfo =  new ProductInfo(parcel);
                     return moduleInfo;
                 }
 
                 @Override
-                public ModuleInfo[] newArray(int size) {
-                    return new ModuleInfo[size];
+                public ProductInfo[] newArray(int size) {
+                    return new ProductInfo[size];
                 }
             };
 }

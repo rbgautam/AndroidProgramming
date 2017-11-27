@@ -1,34 +1,36 @@
-package us.forgeinnovations.deltaman.models;
+package us.forgeinnovations.deltaman.models.shop;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
+
 
 /**
  * Created by Deltaman.
  */
 
-public final class NoteInfo implements Parcelable {
-    private CourseInfo mCourse;
+public final class ItemInfo implements Parcelable {
+    private ProductInfo mCourse;
     private String mTitle;
     private String mText;
 
-    public NoteInfo(CourseInfo course, String title, String text) {
+    public ItemInfo(ProductInfo course, String title, String text) {
         mCourse = course;
         mTitle = title;
         mText = text;
     }
 
-    private NoteInfo(Parcel parcel) {
-        mCourse = parcel.readParcelable(CourseInfo.class.getClassLoader());
+    private ItemInfo(Parcel parcel) {
+        mCourse = parcel.readParcelable(ProductInfo.class.getClassLoader());
         mTitle =  parcel.readString();
         mText = parcel.readString();
     }
 
-    public CourseInfo getCourse() {
+    public ProductInfo getCourse() {
         return mCourse;
     }
 
-    public void setCourse(CourseInfo course) {
+    public void setCourse(ProductInfo course) {
         mCourse = course;
     }
 
@@ -49,7 +51,7 @@ public final class NoteInfo implements Parcelable {
     }
 
     private String getCompareKey() {
-        return mCourse.getCourseId() + "|" + mTitle + "|" + mText;
+        return mCourse.getModuleId () + "|" + mTitle + "|" + mText;
     }
 
     @Override
@@ -57,7 +59,7 @@ public final class NoteInfo implements Parcelable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        NoteInfo that = (NoteInfo) o;
+        ItemInfo that = (ItemInfo) o;
 
         return getCompareKey().equals(that.getCompareKey());
     }
@@ -84,11 +86,11 @@ public final class NoteInfo implements Parcelable {
         parcel.writeString(mText);
     }
 
-    public static final Creator<NoteInfo> CREATOR =
+    public static final Creator<ItemInfo> CREATOR =
             new Creator() {
                 @Override
                 public Object createFromParcel(Parcel parcel) {
-                    NoteInfo noteInfo =  new NoteInfo(parcel);
+                    ItemInfo noteInfo =  new ItemInfo(parcel);
                     return noteInfo;
                 }
 

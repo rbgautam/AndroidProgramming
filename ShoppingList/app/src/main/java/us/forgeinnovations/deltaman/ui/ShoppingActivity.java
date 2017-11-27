@@ -12,7 +12,7 @@ import android.widget.Spinner;
 
 import java.util.List;
 
-import us.forgeinnovations.deltaman.models.*;
+import us.forgeinnovations.deltaman.notes.*;
 
 
 public class ShoppingActivity extends AppCompatActivity {

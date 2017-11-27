@@ -1,13 +1,12 @@
-package us.forgeinnovations.deltaman.models;
+package us.forgeinnovations.deltaman.notes;
 
-import android.database.Cursor;
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.ArrayList;
 import java.util.List;
 /**
- * Created by Deltaman.
+ * Created by 19680608Deltaman.
  */
 
 public final class CourseInfo implements Parcelable {
@@ -25,7 +24,7 @@ public final class CourseInfo implements Parcelable {
         mTitle =parcel.readString();
         mCourseId = parcel.readString();
         mModules = new ArrayList<ModuleInfo>();
-                parcel.readTypedList(mModules,ModuleInfo.CREATOR);
+                parcel.readTypedList(mModules, ModuleInfo.CREATOR);
 
     }
 
@@ -56,7 +55,7 @@ public final class CourseInfo implements Parcelable {
     }
 
     public ModuleInfo getModule(String moduleId) {
-        for(ModuleInfo moduleInfo: mModules) {
+        for(ModuleInfo moduleInfo : mModules) {
             if(moduleId.equals(moduleInfo.getModuleId()))
                 return moduleInfo;
         }

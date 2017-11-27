@@ -1,21 +1,23 @@
-package us.forgeinnovations.deltaman.models;
+package us.forgeinnovations.deltaman.repository;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import us.forgeinnovations.deltaman.models.shop.*;
 
 /**
  * Created by Deltaman.
  */
 
-public class DataManager {
-    private static DataManager ourInstance = null;
+public class ShoppingListDataManager {
+    private static ShoppingListDataManager ourInstance = null;
 
-    private List<CourseInfo> mCourses = new ArrayList<>();
-    private List<NoteInfo> mNotes = new ArrayList<>();
+    private List<ShoplistInfo> mCourses = new ArrayList<>();
+    private List<ItemInfo> mNotes = new ArrayList<>();
 
-    public static DataManager getInstance() {
+    public static ShoppingListDataManager getInstance() {
         if(ourInstance == null) {
-            ourInstance = new DataManager();
+            ourInstance = new ShoppingListDataManager();
             ourInstance.initializeCourses();
             ourInstance.initializeExampleNotes();
         }
@@ -30,17 +32,17 @@ public class DataManager {
         return "jimw@jwhh.com";
     }
 
-    public List<NoteInfo> getNotes() {
+    public List<ItemInfo> getNotes() {
         return mNotes;
     }
 
     public int createNewNote() {
-        NoteInfo note = new NoteInfo(null, null, null);
+        ItemInfo note = new ItemInfo(null, null, null);
         mNotes.add(note);
         return mNotes.size() - 1;
     }
 
-    public int findNote(NoteInfo note) {
+    public int findNote(ItemInfo note) {
         for(int index = 0; index < mNotes.size(); index++) {
             if(note.equals(mNotes.get(index)))
                 return index;
@@ -53,37 +55,37 @@ public class DataManager {
         mNotes.remove(index);
     }
 
-    public List<CourseInfo> getCourses() {
+    public List<ShoplistInfo> getCourses() {
         return mCourses;
     }
 
-    public CourseInfo getCourse(String id) {
-        for (CourseInfo course : mCourses) {
+    public ShoplistInfo getCourse(String id) {
+        for (ShoplistInfo course : mCourses) {
             if (id.equals(course.getCourseId()))
                 return course;
         }
         return null;
     }
 
-    public List<NoteInfo> getNotes(CourseInfo course) {
-        ArrayList<NoteInfo> notes = new ArrayList<>();
-        for(NoteInfo note:mNotes) {
+    public List<ItemInfo> getNotes(ShoplistInfo course) {
+        ArrayList<ItemInfo> notes = new ArrayList<>();
+        for(ItemInfo note:mNotes) {
             if(course.equals(note.getCourse()))
                 notes.add(note);
         }
         return notes;
     }
 
-    public int getNoteCount(CourseInfo course) {
+    public int getNoteCount(ShoplistInfo course) {
         int count = 0;
-        for(NoteInfo note:mNotes) {
+        for(ItemInfo note:mNotes) {
             if(course.equals(note.getCourse()))
                 count++;
         }
         return count;
     }
 
-    private DataManager() {
+    private ShoppingListDataManager() {
     }
 
     //region Initialization code
@@ -96,23 +98,23 @@ public class DataManager {
     }
 
     public void initializeExampleNotes() {
-        final DataManager dm = getInstance();
+        final ShoppingListDataManager dm = getInstance();
 
-        CourseInfo course = dm.getCourse("android_intents");
+        ShoplistInfo course = dm.getCourse("android_intents");
         course.getModule("android_intents_m01").setComplete(true);
         course.getModule("android_intents_m02").setComplete(true);
         course.getModule("android_intents_m03").setComplete(true);
-        mNotes.add(new NoteInfo(course, "Dynamic intent resolution",
+        mNotes.add(new ItemInfo(course, "Dynamic intent resolution",
                 "Wow, intents allow components to be resolved at runtime"));
-        mNotes.add(new NoteInfo(course, "Delegating intents",
+        mNotes.add(new ItemInfo(course, "Delegating intents",
                 "PendingIntents are powerful; they delegate much more than just a component invocation"));
 
         course = dm.getCourse("android_async");
         course.getModule("android_async_m01").setComplete(true);
         course.getModule("android_async_m02").setComplete(true);
-        mNotes.add(new NoteInfo(course, "Service default threads",
+        mNotes.add(new ItemInfo(course, "Service default threads",
                 "Did you know that by default an Android Service will tie up the UI thread?"));
-        mNotes.add(new NoteInfo(course, "Long running operations",
+        mNotes.add(new ItemInfo(course, "Long running operations",
                 "Foreground Services can be tied to a notification icon"));
 
         course = dm.getCourse("java_lang");
@@ -123,18 +125,18 @@ public class DataManager {
         course.getModule("java_lang_m05").setComplete(true);
         course.getModule("java_lang_m06").setComplete(true);
         course.getModule("java_lang_m07").setComplete(true);
-        mNotes.add(new NoteInfo(course, "Parameters",
+        mNotes.add(new ItemInfo(course, "Parameters",
                 "Leverage variable-length parameter lists"));
-        mNotes.add(new NoteInfo(course, "Anonymous classes",
+        mNotes.add(new ItemInfo(course, "Anonymous classes",
                 "Anonymous classes simplify implementing one-use types"));
 
         course = dm.getCourse("java_core");
         course.getModule("java_core_m01").setComplete(true);
         course.getModule("java_core_m02").setComplete(true);
         course.getModule("java_core_m03").setComplete(true);
-        mNotes.add(new NoteInfo(course, "Compiler options",
+        mNotes.add(new ItemInfo(course, "Compiler options",
                 "The -jar option isn't compatible with with the -cp option"));
-        mNotes.add(new NoteInfo(course, "Serialization",
+        mNotes.add(new ItemInfo(course, "Serialization",
                 "Remember to include SerialVersionUID to assure version compatibility"));
     }
 
