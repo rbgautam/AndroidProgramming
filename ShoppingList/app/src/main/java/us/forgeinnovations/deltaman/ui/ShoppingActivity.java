@@ -69,10 +69,11 @@ public class ShoppingActivity extends AppCompatActivity {
             saveOriginalNotesValues();
         else
             restoreOriginalStateValues(savedInstanceState);
+        mTextItemName = (EditText) findViewById(R.id.editText_itemname);
+        mTextItemDesc = (EditText) findViewById(R.id.editText_itemdesc);
 
         if(!mIsNewNote){
-            mTextItemName = (EditText) findViewById(R.id.editText_itemname);
-            mTextItemDesc = (EditText) findViewById(R.id.editText_itemdesc);
+
             displayNote(mSpinnerShoppingType, mTextItemName, mTextItemDesc);
 
 
