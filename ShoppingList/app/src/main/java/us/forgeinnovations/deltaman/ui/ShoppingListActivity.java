@@ -38,27 +38,27 @@ public class ShoppingListActivity extends AppCompatActivity {
 
     private void initializeDisplayContent() {
 
-        final ListView listItems = (ListView) findViewById(R.id.list_items);
-
-        List<NoteInfo> items = DataManager.getInstance().getNotes();
-
-        ArrayAdapter<NoteInfo> itemAdapter  = new ArrayAdapter<NoteInfo>(this,android.R.layout.simple_list_item_1, items);
-        listItems.setAdapter(itemAdapter);
-
-        listItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Intent intent =  new Intent(ShoppingListActivity.this,ShoppingActivity.class);
-
-                NoteInfo item = (NoteInfo) listItems.getItemAtPosition(position);
-
-                //intent.putExtra(ShoppingActivity.ITEM_INFO,item);
-
-                intent.putExtra(ShoppingActivity.ITEM_POSITION, position);
-
-                startActivity(intent);
-            }
-        });
+//        final ListView listItems = (ListView) findViewById(R.id.list_items);
+//
+//        List<NoteInfo> items = DataManager.getInstance().getNotes();
+//
+////        ArrayAdapter<NoteInfo> itemAdapter  = new ArrayAdapter<NoteInfo>(this,android.R.layout.simple_list_item_1, items);
+////        listItems.setAdapter(itemAdapter);
+//
+//        listItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+//                Intent intent =  new Intent(ShoppingListActivity.this,ShoppingActivity.class);
+//
+//                NoteInfo item = (NoteInfo) listItems.getItemAtPosition(position);
+//
+//                //intent.putExtra(ShoppingActivity.ITEM_INFO,item);
+//
+//                intent.putExtra(ShoppingActivity.ITEM_POSITION, position);
+//
+//                startActivity(intent);
+//            }
+//        });
     }
 
 
