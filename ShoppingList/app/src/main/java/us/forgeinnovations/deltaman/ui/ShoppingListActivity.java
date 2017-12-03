@@ -19,6 +19,8 @@ import us.forgeinnovations.deltaman.notes.NoteInfo;
 
 public class ShoppingListActivity extends AppCompatActivity {
 
+    private ProductRecyclerAdapter mProductRecyclerAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +38,12 @@ public class ShoppingListActivity extends AppCompatActivity {
         });
 
         initializeDisplayContent();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mProductRecyclerAdapter.notifyDataSetChanged();
     }
 
     private void initializeDisplayContent() {
@@ -66,6 +74,11 @@ public class ShoppingListActivity extends AppCompatActivity {
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerViewItems.setLayoutManager(linearLayoutManager);
 
+        List<NoteInfo> notes = DataManager.getInstance().getNotes();
+
+        mProductRecyclerAdapter = new ProductRecyclerAdapter(this,notes);
+
+        recyclerViewItems.setAdapter(mProductRecyclerAdapter);
 
     }
 
