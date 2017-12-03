@@ -32,7 +32,6 @@ public class ShoppingActivity extends AppCompatActivity {
     private Spinner mSpinnerShoppingType;
     private EditText mTextItemName;
     private EditText mTextItemDesc;
-    private int mNotePosition;
     private boolean mIsCanceling;
     private ArrayAdapter<CourseInfo> mAdapterCourses;
     private String mOriginalNoteCourseId;
@@ -100,8 +99,8 @@ public class ShoppingActivity extends AppCompatActivity {
 
     private void createNewNote() {
         DataManager dm = DataManager.getInstance();
-        mNotePosition = dm.createNewNote();
-        mItem = dm.getNotes().get(mNotePosition);
+        mItemPosition = dm.createNewNote();
+        mItem = dm.getNotes().get(mItemPosition);
     }
 
     private void displayNote(Spinner shoppingType, EditText textItemName, EditText textItemDesc) {
@@ -159,6 +158,9 @@ public class ShoppingActivity extends AppCompatActivity {
             finish();
         }
 
+        if(id == R.id.action_next) {
+            moveNext();
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -173,7 +175,7 @@ public class ShoppingActivity extends AppCompatActivity {
         super.onPause();
         if(mIsCanceling){
             if(mIsNewNote){
-                DataManager.getInstance().removeNote(mNotePosition);
+                DataManager.getInstance().removeNote(mItemPosition);
             }else{
                 restoreOriginalValues();
             }
@@ -195,6 +197,24 @@ public class ShoppingActivity extends AppCompatActivity {
         mItem.setText(mTextItemDesc.getText().toString());
     }
 
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem item = menu.findItem(R.id.action_next);
+        int lastNoteIndex = DataManager.getInstance().getNotes().size() - 1;
+        item.setEnabled(mItemPosition < lastNoteIndex);
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    private void moveNext() {
+        saveNote();
+
+        ++mItemPosition;
+        mItem = DataManager.getInstance().getNotes().get(mItemPosition);
+
+        saveOriginalNotesValues();
+        displayNote(mSpinnerShoppingType, mTextItemName, mTextItemDesc);
+        invalidateOptionsMenu();
+    }
     private void sendEmail() {
         CourseInfo course = (CourseInfo) mSpinnerShoppingType.getSelectedItem();
         String subject = mTextItemName.getText().toString();

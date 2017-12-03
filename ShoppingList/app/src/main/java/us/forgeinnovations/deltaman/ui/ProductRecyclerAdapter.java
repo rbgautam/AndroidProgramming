@@ -18,25 +18,26 @@ import us.forgeinnovations.deltaman.notes.NoteInfo;
 
 public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecyclerAdapter.ViewHolder>  {
     private final Context mContext;
-    private final LayoutInflater mLayoutInflater;
     private final List<NoteInfo> mNotes;
-    public ProductRecyclerAdapter(Context mContext, List<NoteInfo> mNotes) {
-        this.mContext = mContext;
+    private final LayoutInflater mLayoutInflater;
+
+    public ProductRecyclerAdapter(Context context, List<NoteInfo> notes) {
+        mContext = context;
+        mNotes = notes;
         mLayoutInflater = LayoutInflater.from(mContext);
-        this.mNotes = mNotes;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View productView = mLayoutInflater.inflate(R.layout.item_product_list ,parent, false);
-        return new ViewHolder(productView);
+        View itemView = mLayoutInflater.inflate(R.layout.item_product_list, parent, false);
+        return new ViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        NoteInfo note =  mNotes.get(position);
-        holder.mTextTitle.setText(note.getCourse().getTitle());
-        holder.mTextDesc.setText(note.getTitle());
+        NoteInfo note = mNotes.get(position);
+        holder.mTextCourse.setText(note.getCourse().getTitle());
+        holder.mTextTitle.setText(note.getTitle());
         holder.mCurrentPosition = position;
     }
 
@@ -45,32 +46,26 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
         return mNotes.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
+        public final TextView mTextCourse;
         public final TextView mTextTitle;
-        public final TextView mTextDesc;
-        private int mCurrentPosition;
+        public int mCurrentPosition;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            mTextTitle = (TextView)itemView.findViewById(R.id.textTitle);
-            mTextDesc = (TextView) itemView.findViewById(R.id.textDesc);
+            mTextCourse = (TextView) itemView.findViewById(R.id.textTitle);
+            mTextTitle = (TextView) itemView.findViewById(R.id.textDesc);
 
             itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent launchProdDetails  = new Intent(mContext,ShoppingActivity.class);
-                        launchProdDetails.putExtra(ShoppingActivity.ITEM_POSITION, mCurrentPosition);
-
-                        mContext.startActivity(launchProdDetails);
-                    }
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext, ShoppingActivity.class);
+                    intent.putExtra(ShoppingActivity.ITEM_POSITION , mCurrentPosition);
+                    mContext.startActivity(intent);
                 }
-            );
-
+            });
         }
-
-
-
     }
 }
 
