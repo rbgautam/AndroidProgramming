@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/default_background">
+    <TextView android:text="Email address:" 
+	    android:id="@+id/lbl_enter_email" 
+	    android:layout_width="wrap_content" 
+	    android:layout_height="wrap_content"
+	    android:textColor="@color/default_text">
+    </TextView>
+    <EditText android:layout_width="match_parent" 
+	    android:layout_height="wrap_content"  
+	    android:id="@+id/txt_email_address"
+	    android:inputType="textFilter"
+	    android:textColor="@color/default_black">
+    </EditText>
+    <TextView android:text="Notes:" 
+	    android:id="@+id/lbl_email_notes" 
+	    android:layout_width="wrap_content" 
+	    android:layout_height="wrap_content"
+	    android:textColor="@color/default_text">
+    </TextView>
+    <EditText android:layout_width="match_parent" 
+	    android:layout_height="wrap_content"  
+	    android:id="@+id/txt_email_notes"
+	    android:inputType="textMultiLine"
+	    android:maxLines="5"
+	    android:textColor="@color/default_black">
+    </EditText>
+    <RelativeLayout android:layout_width="match_parent" 
+	    android:id="@+id/email_prompt_buttons_layout" 
+	    android:layout_height="wrap_content">
+        <Button android:text="OK" 
+	        android:id="@+id/btn_email_ok" 
+	        android:layout_width="175sp" 
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:textColor="@color/default_black">
+        </Button>
+        <Button android:text="Cancel" 
+	        android:id="@+id/btn_email_cancel" 
+	        android:layout_width="175sp" 
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:textColor="@color/default_black">
+	    </Button>
+    </RelativeLayout>
+    <TextView android:text="Invalid email address. Please try again." 
+	    android:id="@+id/lbl_invalid_email" 
+	    android:layout_width="wrap_content" 
+	    android:layout_height="wrap_content"
+	    android:textColor="@color/error_message_text"
+	    android:visibility="gone">
+    </TextView>
+</LinearLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="horizontal"
+  android:layout_width="match_parent"
+  android:layout_marginRight="20sp"
+  android:layout_marginLeft="20sp"
+  android:layout_height="wrap_content"
+  android:background="@android:color/transparent"
+  android:layout_gravity="center_vertical|center_horizontal">
+    <EditText android:layout_width="match_parent"
+    	android:layout_weight=".5"
+    	android:id="@+id/txt_stock_search" 
+    	android:layout_height="69sp"
+    	android:inputType="textFilter"
+    	android:textSize="30sp"
+    	android:layout_gravity="center_vertical"
+    	android:textColor="@color/details_text">
+    </EditText>
+    <Button android:text="" 
+	    android:id="@+id/btn_vehicle_search" 
+	    android:layout_width="wrap_content" 
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/search_button_background_selector"
+	    android:layout_marginRight="20sp">
+    </Button>
+    <Button android:text="" 
+	    android:id="@+id/btn_vehicle_voice_search" 
+	    android:layout_width="wrap_content" 
+	    android:layout_height="wrap_content"
+	    android:enabled="false"
+	    android:background="@drawable/voice_search_button_background_selector"
+	    android:layout_marginRight="5sp">
+    </Button>
+    <Button android:text="" 
+	    android:id="@+id/btn_vehicle_barcode_search" 
+	    android:layout_width="wrap_content"  
+	    android:layout_height="wrap_content"
+    	android:background="@drawable/barcode_button_background_selector">
+    </Button>
+</LinearLayout>

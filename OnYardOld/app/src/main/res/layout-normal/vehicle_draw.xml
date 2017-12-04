@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+    
+	<com.iaai.onyard.view.DrawView 
+	    android:id="@+id/vehicle_photo_draw" 
+	    android:layout_width="fill_parent" 
+	    android:layout_height="600sp">
+	</com.iaai.onyard.view.DrawView>
+	<RelativeLayout android:layout_width="match_parent" 
+		android:orientation="horizontal"
+		android:id="@+id/linearLayout_draw_buttons" 
+		android:layout_height="wrap_content"
+		android:layout_gravity="center_vertical">
+		<Button android:text="Save Drawing" 
+		    android:id="@+id/btn_save_drawn_photo" 
+		    android:layout_width="150sp"
+		    android:layout_height="80sp"
+		    android:textSize="25sp"
+		    android:layout_alignParentLeft="true"
+		    android:layout_marginLeft="20sp"
+		    android:layout_centerVertical="true">
+		</Button>
+		<Button android:text="Skip" 
+		    android:id="@+id/btn_no_draw_photo" 
+		    android:layout_width="150sp"
+		    android:layout_height="80sp"
+		    android:textSize="25sp"
+			android:layout_marginLeft="20sp"
+		    android:layout_centerVertical="true"
+		    android:layout_toRightOf="@id/btn_save_drawn_photo">
+		</Button>
+		<TextView android:text="Color: " 
+		    android:id="@+id/lbl_draw_color" 
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:textColor="@color/default_text"
+		    android:textSize="25sp"
+			android:textStyle="bold"
+		    android:layout_centerVertical="true"
+		    android:layout_toRightOf="@id/btn_no_draw_photo"
+		    android:layout_marginLeft="20sp">
+	    </TextView>
+		<Spinner android:id="@+id/spin_draw_color"
+			android:entries="@array/drawColor"
+			android:layout_width="150sp"
+		    android:layout_height="80sp"
+		    android:textSize="25sp"
+		    android:prompt="@string/drawing_color_prompt"
+		    android:layout_alignParentRight="true"
+		    android:layout_marginRight="15sp"
+		    android:layout_centerVertical="true">
+		</Spinner>
+	</RelativeLayout>
+	
+</LinearLayout>

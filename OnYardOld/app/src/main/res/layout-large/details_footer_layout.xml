@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="horizontal"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+    <Button android:text="" 
+	    android:id="@+id/btn_take_photo"
+	    android:layout_width="wrap_content" 
+	    android:layout_height="wrap_content"
+	    android:editable="true"
+	    android:layout_alignParentLeft="true"
+	    android:layout_marginLeft="45sp"
+	    android:layout_marginTop="8sp"
+	    android:background="@drawable/camera_button_background_selector">
+    </Button>
+    <ImageView android:layout_height="wrap_content"
+	    android:src="@drawable/camera_label" 
+	    android:id="@+id/img_camera_label"
+	    android:layout_width="wrap_content"
+	    android:layout_alignParentLeft="true"
+	    android:layout_marginLeft="40sp"
+	    android:layout_marginTop="94sp">
+	</ImageView>
+    <Button android:text="" 
+	    android:id="@+id/btn_send_photos" 
+	    android:layout_width="wrap_content" 
+	    android:layout_height="wrap_content"
+	    android:enabled="false"
+	    android:layout_centerHorizontal="true"
+	    android:layout_marginTop="20sp"
+	    android:background="@drawable/email_button_background_selector">
+    </Button>
+    <ImageView android:layout_height="wrap_content" 
+	    android:src="@drawable/email_label" 
+	    android:id="@+id/img_email_label" 
+	    android:layout_width="wrap_content"
+	    android:layout_centerHorizontal="true"
+	    android:layout_marginTop="94sp">
+	</ImageView>
+    <Button android:text=""
+	    android:id="@+id/btn_view_map"
+	    android:layout_width="wrap_content" 
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentRight="true"
+	    android:layout_marginRight="45sp"
+	    android:layout_marginTop="7sp"
+	    android:background="@drawable/map_button_background_selector">
+    </Button>
+    <ImageView android:layout_height="wrap_content" 
+	    android:src="@drawable/map_label"
+	    android:id="@+id/img_map_label"
+	    android:layout_width="wrap_content"
+	    android:layout_alignParentRight="true"
+	    android:layout_marginRight="40sp"
+	    android:layout_marginTop="94sp">
+	</ImageView>
+	<ImageView android:layout_height="wrap_content" 
+		android:src="@drawable/blank"
+	    android:id="@+id/img_num_photos" 
+	    android:layout_width="wrap_content"
+	    android:layout_alignParentLeft="true"
+	    android:layout_marginLeft="120sp"
+	    android:layout_marginTop="20sp">
+	</ImageView>
+</RelativeLayout>

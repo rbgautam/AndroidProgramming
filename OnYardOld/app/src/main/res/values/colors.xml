@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources> 
+    <color name="default_background">#ffffff</color>
+    <color name="default_text">#696969</color>
+    <color name="default_black">#000000</color>
+    <color name="details_text">#000000</color>
+    <color name="list_view_pressed_background">#d7182a</color>
+    <color name="iaa_red">#d7182a</color>
+<!--     <color name="list_view_text">#696969</color> -->
+	<color name="list_view_text_strong">#737373</color>
+	<color name="list_view_text_normal">#919191</color>
+    <color name="error_message_text">#FF0000</color>
+</resources>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent" 
+    android:layout_width="fill_parent"
+    android:fillViewport="true"
+    android:id="@+id/scroll_details">
+	<LinearLayout
+	  android:orientation="vertical"
+	  android:layout_width="fill_parent"
+	  android:layout_height="fill_parent"
+	  android:background="@drawable/background_gradient">
+		<ImageView android:layout_height="wrap_content" 
+		    android:src="@drawable/logo" 
+		    android:id="@+id/img_logo" 
+		    android:layout_width="wrap_content"
+		    android:layout_gravity="center"
+		    android:layout_marginTop="2sp">
+	    </ImageView>
+		<FrameLayout android:id="@+id/search_frame"
+	    	android:layout_width="fill_parent"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginRight="15sp"
+	  		android:layout_marginLeft="15sp"
+	  		android:layout_marginTop="2sp">
+	    	<ImageView android:id="@+id/img_search_background"
+	    		android:layout_width="match_parent"
+	    		android:layout_height="90sp"
+	    		android:src="@drawable/search_background"
+	    		android:scaleType="fitXY">
+    		</ImageView>
+	    	<include android:id="@+id/search" 
+	    		layout="@layout/search_layout" />
+	    </FrameLayout>
+	    <FrameLayout android:id="@+id/details_frame"
+	    	android:layout_width="fill_parent"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginRight="10sp"
+	  		android:layout_marginLeft="10sp"
+	  		android:layout_marginTop="2sp">
+	    	<ImageView android:id="@+id/img_details_background"
+	    		android:layout_width="match_parent"
+	    		android:layout_height="425sp"
+	    		android:src="@drawable/content_box"
+	    		android:scaleType="fitXY">
+    		</ImageView>
+	    	<include android:id="@+id/details"
+	   			layout="@layout/details_layout" />
+	    </FrameLayout>
+	    <Button android:text="Clear Data" 
+		    android:id="@+id/btn_restart_app" 
+		    android:layout_width="120sp" 
+		    android:layout_height="45sp"
+		    android:layout_gravity="center"
+	    	android:layout_marginTop="5sp"
+	    	android:textSize="19sp"
+	        android:textColor="@color/default_black">
+	    </Button>
+	    <FrameLayout android:id="@+id/footer_frame"
+	    	android:layout_width="fill_parent"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginTop="10sp">
+	    	<ImageView android:id="@+id/img_footer"
+		   		android:layout_width="fill_parent"
+		   		android:layout_height="150sp"
+		   		android:src="@drawable/footer_icons_background"
+		   		android:layout_gravity="center_horizontal|bottom"
+		   		android:scaleType="fitXY">
+		   	</ImageView>
+	    	<include android:id="@+id/footer" 
+	    		layout="@layout/details_footer_layout"
+	    		android:layout_above="@id/img_footer" />
+	    </FrameLayout>
+</LinearLayout>
+</ScrollView>

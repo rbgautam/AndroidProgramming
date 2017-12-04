@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory android:title="Data Sync"
+		android:key="data_sync">
+			
+		<CheckBoxPreference android:key="@string/sync_when_opened_pref"
+			android:summary="Sync content when I view app" 
+			android:title="Sync when opened"
+			android:defaultValue="false" />
+
+		<ListPreference android:key="@string/sync_interval_pref"
+			android:title="Sync schedule" 
+			android:summary="Define how often syncs will occur"
+			android:defaultValue="300"
+			android:entries="@array/syncInterval"
+			android:entryValues="@array/syncIntervalValues"/>
+			
+		<EditTextPreference android:key="branch_number_pref" 
+			android:title="Branch number"
+			android:summary="Choose which branch's data to sync" 
+			android:defaultValue="0"/>
+	</PreferenceCategory>
+</PreferenceScreen>

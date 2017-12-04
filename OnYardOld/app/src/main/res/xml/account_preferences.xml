@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="General Settings" />
+ 
+    <PreferenceScreen
+        android:key="@string/onyard_shared_prefs_name"
+        android:title="Sync Settings"
+        android:summary="Set frequency, notifications, etc.">
+        <intent
+            android:action="com.iaai.onyard.account.ACCOUNT_SETUP"
+            android:targetPackage="com.iaai.onyard"
+            android:targetClass="com.iaai.onyard.activity.AccountPreferencesActivity" />
+    </PreferenceScreen>
+    
+</PreferenceScreen>

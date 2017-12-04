@@ -1,0 +1,39 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "27.0.1"
+    useLibrary 'org.apache.http.legacy'
+    splits {
+        abi {
+            enable true
+            reset()
+            include 'x86', 'armeabi-v7a'
+            universalApk true
+        }
+    }
+    defaultConfig {
+        applicationId "com.iaai.onyard"
+        minSdkVersion 14
+        targetSdkVersion 24
+
+        testApplicationId "com.iaai.onyard.test"
+        testInstrumentationRunner "android.test.InstrumentationTestRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile 'com.google.android.gms:play-services:6.1.+'
+    compile 'com.android.support:appcompat-v7:24.0.0'
+    compile files('libs/activation.jar')
+    compile files('libs/additionnal.jar')
+//    compile files('libs/google-play-services.jar')
+    compile files('libs/mail.jar')
+}

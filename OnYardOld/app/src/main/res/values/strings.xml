@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--     ______________________ENVIRONMENT SPECIFIC STRINGS______________________ -->
+    
+<!--     ________DEV________ -->
+	<string name="onyard_service_url_base">https://dpal1.iaai.com/onyard/</string>
+	<string name="iaa_onyard_server">dpal1.iaai.com</string>
+	<string name="mobile_csa_url">http://qamcsatoday.iaai.com/</string>
+
+<!--     ________QA________ -->
+<!-- 	<string name="onyard_service_url_base">https://qpal.iaai.com/onyard/</string> -->
+<!-- 	<string name="iaa_onyard_server">qpal-web02.iaai.com</string> -->
+<!-- 	<string name="mobile_csa_url">http://qamcsatoday.iaai.com/</string> -->
+
+<!--     ________PROD________ -->
+<!-- 	<string name="onyard_service_url_base">https://pal.iaai.com/onyard/</string> -->
+<!-- 	<string name="iaa_onyard_server">ppal-web04.iaai.com</string> -->
+<!-- 	<string name="mobile_csa_url">https://m.csatoday.iaai.com/</string> -->
+
+<!--     ______________________ENVIRONMENT SPECIFIC STRINGS______________________ -->
+    
+    
+    <string name="email_from_address">IAAOnYard@iaai.com</string>
+    <string name="metrics_to_address">wferguson@iaai.com</string>
+    <string name="iaa_mail_server">Hub.iaai.com</string>
+    <string name="onyard_service_password">1a!A0Ny4r*D57</string>
+    
+    <string name="app_name">OnYard</string>
+    <string name="account_type">com.iaai.OnYard.account</string>
+    <string name="onyard_account_name">OnYard</string>
+    <string name="sync_type_key">sync_type</string>
+    <string name="ondemand_sync_type_value">OnDemand</string>
+    <string name="nightly_sync_type_value">Nightly</string>
+    <string name="sync_when_opened_pref">sync_when_opened</string>
+    <string name="sync_interval_pref">sync_interval</string>
+    <string name="vehicle_search_title">Vehicle Search screen</string>
+    <string name="vehicle_image_title">Vehicle Image screen</string>
+    <string name="json_file">json.txt</string>
+    <string name="is_alarm_set_pref">is_alarm_set</string>
+    <string name="search_val">search_val</string>
+    <string name="vehicle_search_results">vehicle_search_results</string>
+    <string name="vehicle_match_stock_number">vehicle_match_stock_number</string>
+    <string name="latitude_extra">latitude</string>
+    <string name="longitude_extra">longitude</string>
+    <string name="stock_number_extra">stock_number_extra</string>
+    <string name="vin_extra">vin_extra</string>
+    <string name="year_make_model_extra">year_make_model_extra</string>
+    <string name="web_activity_url_extra">web_activity_url_extra</string>
+    <string name="vehicle_details_activity_title">Vehicle Details</string>
+    <string name="vehicle_list_activity_title">Search Results</string>
+    <string name="drawing_color_prompt">Choose a drawing color:</string>
+    <string name="previous_stock_num">previous_stock_num</string>
+    <string name="branch_number_pref">branch_number_pref</string>
+    <string name="admin_password">miaa123frame</string>
+    <string name="image_uri">image_uri</string>
+    <string name="onyard_image_dir">OnYard</string>
+    <string name="zxing_scan_action">com.google.zxing.client.android.SCAN</string>
+    <string name="onyard_shared_prefs_name">OnYard_Prefs</string>
+    <string name="json_file_path">/data/data/com.iaai.onyard/files/</string>
+</resources>

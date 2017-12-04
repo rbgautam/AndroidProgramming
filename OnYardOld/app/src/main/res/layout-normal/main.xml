@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent" 
+    android:layout_width="fill_parent"
+    android:fillViewport="true">
+	<LinearLayout 
+		android:orientation="vertical" 
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+	  	android:background="@drawable/background_gradient">
+	    <ImageView android:layout_height="wrap_content" 
+		    android:src="@drawable/logo" 
+		    android:id="@+id/img_logo" 
+		    android:layout_width="wrap_content"
+		    android:layout_gravity="center"
+		    android:layout_marginTop="2sp">
+	    </ImageView>
+		<FrameLayout android:id="@+id/search_frame"
+	    	android:layout_width="fill_parent"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginRight="15sp"
+	  		android:layout_marginLeft="15sp"
+	  		android:layout_marginTop="2sp">
+	    	<ImageView android:id="@+id/img_search_background"
+	    		android:layout_width="match_parent"
+	    		android:layout_height="90sp"
+	    		android:src="@drawable/search_background"
+	    		android:scaleType="fitXY">
+	    	</ImageView>
+	    	<include android:id="@+id/search" 
+	    		layout="@layout/search_layout" />
+	    </FrameLayout>
+	    <Button android:text="" 
+		    android:id="@+id/btn_csa" 
+		    android:layout_width="150sp" 
+		    android:layout_height="75sp"
+		    android:layout_gravity="center"
+		    android:background="@drawable/csa_today_background_button_selector">
+	    </Button>
+	</LinearLayout>
+</ScrollView>

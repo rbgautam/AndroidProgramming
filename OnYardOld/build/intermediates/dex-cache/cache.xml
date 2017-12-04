@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\RGautam\Documents\AndroidProgramming\OnYardOld\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\libs\internal_impl-24.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="C:\Users\RGautam\Documents\AndroidProgramming\OnYardOld\app\build\intermediates\pre-dexed\debug\internal_impl-24.0.0_453d1deb6df57bd8e66fecc8174658bd3a1f4352.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RGautam\Documents\AndroidProgramming\OnYardOld\app\libs\activation.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="d1257cbff6faa44c1f325ae0d9413522d4644383">
+        <dex dex="C:\Users\RGautam\Documents\AndroidProgramming\OnYardOld\app\build\intermediates\pre-dexed\debug\activation_223ae68da4758236bf7cf5643673ec4d72754241.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RGautam\Documents\AndroidProgramming\OnYardOld\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="e70f608219ed6b974644c333249ab2bb7b71de98">
+        <dex dex="C:\Users\RGautam\Documents\AndroidProgramming\OnYardOld\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-24.0.0_68df05861684e86e53de134139d68cd2508fa6f2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RGautam\Documents\AndroidProgramming\OnYardOld\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="0f6d5c1ef2e982c3b7858408e3df389cf5d202da">
+        <dex dex="C:\Users\RGautam\Documents\AndroidProgramming\OnYardOld\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-6.1.71_01e2db9624092b532cdd68b5e68dbbc6541f2680.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RGautam\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.0.0\support-annotations-24.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="C:\Users\RGautam\Documents\AndroidProgramming\OnYardOld\app\build\intermediates\pre-dexed\debug\support-annotations-24.0.0_a9cda8811f9f1fc4d682b145c149bac4fdecd56a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RGautam\Documents\AndroidProgramming\OnYardOld\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="C:\Users\RGautam\Documents\AndroidProgramming\OnYardOld\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-24.0.0_cb5c3aaa3c32841197a08a3625e773c9bae956ab.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RGautam\Documents\AndroidProgramming\OnYardOld\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="0874286cc2fd88d54fdf130e9d5372730da6de97">
+        <dex dex="C:\Users\RGautam\Documents\AndroidProgramming\OnYardOld\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-24.0.0_2f97b20c2809db5379197a04fb03ff8398f8cfc1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RGautam\Documents\AndroidProgramming\OnYardOld\app\libs\mail.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="428e267abff0d10802ccde86b915da2c20471160">
+        <dex dex="C:\Users\RGautam\Documents\AndroidProgramming\OnYardOld\app\build\intermediates\pre-dexed\debug\mail_a3ccf2937b8067fc9214105ea81daf297e0dc890.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RGautam\Documents\AndroidProgramming\OnYardOld\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
+        <dex dex="C:\Users\RGautam\Documents\AndroidProgramming\OnYardOld\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.0.0_576ffaf01f427130707ffacba8d109c6844cc0a0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RGautam\Documents\AndroidProgramming\OnYardOld\app\libs\additionnal.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="bd9e8dc422bb8c8405359947fe9f4282b49f57f4">
+        <dex dex="C:\Users\RGautam\Documents\AndroidProgramming\OnYardOld\app\build\intermediates\pre-dexed\debug\additionnal_9acba45f035783b5bcc03efde652cc90ccb54da6.jar" />
+    </item>
+
+</items>
