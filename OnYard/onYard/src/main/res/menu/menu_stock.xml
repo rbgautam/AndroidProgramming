@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" 
+	xmlns:yourapp="http://schemas.android.com/apk/res-auto">
+
+	<item android:id="@+id/action_save"
+        android:icon="@drawable/ic_action_save"
+        android:menuCategory="system"
+        android:orderInCategory="10"
+        android:showAsAction="withText|always"
+        android:title="@string/save_title"
+        android:visible="false" />
+	
+	<item android:id="@+id/action_verify"
+        android:menuCategory="system"
+        android:orderInCategory="10"
+        android:showAsAction="withText|always"
+        android:title="@string/verify_title"
+        android:visible="false" />
+</menu>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/default_background" >
+    
+    <FrameLayout android:id="@+id/stock_location_vehicle_details_frame"
+		android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/lbl_new_aisle"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_height="wrap_content"
+            android:text="@string/new_aisle_label"
+            android:textSize="35sp"
+            android:layout_gravity="bottom" />
+
+        <EditText
+            android:id="@+id/txt_new_aisle"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_height="wrap_content"
+            android:textSize="35sp"
+            android:inputType="textCapCharacters|textVisiblePassword" >
+        </EditText>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/lbl_new_stall"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_height="wrap_content"
+            android:text="@string/new_stall_label"
+            android:textSize="35sp"
+            android:layout_gravity="bottom" />
+
+        <EditText
+            android:id="@+id/txt_new_stall"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_height="wrap_content"
+            android:textSize="35sp"
+            android:inputType="number" />
+
+    </LinearLayout>
+    
+</LinearLayout>

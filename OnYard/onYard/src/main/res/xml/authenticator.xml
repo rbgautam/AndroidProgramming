@@ -1,0 +1,7 @@
+ <account-authenticator xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accountType="com.iaai.OnYard.account"
+    android:icon="@drawable/onyard_icon"
+    android:smallIcon="@drawable/onyard_icon"
+    android:label="@string/app_name"
+    android:accountPreferences="@xml/account_preferences"
+ />

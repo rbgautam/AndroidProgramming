@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+  	android:background="@drawable/listview_selector">
+  	<LinearLayout android:orientation="vertical"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight=".95"
+	  	android:layout_marginLeft="10dp"
+	  	android:layout_marginTop="10dp"
+	  	android:layout_marginBottom="10dp">
+	  	
+		<LinearLayout android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/checkin_stock_vnn_row">
+  	    
+			<TextView android:text="@string/stock_text" 
+				android:layout_width="0dp"
+				android:layout_weight="0.4"
+				android:layout_height="wrap_content" 
+				android:id="@+id/checkin_stock_row"
+				android:textSize="13sp"
+				android:textColor="@color/list_view_text_strong">
+			</TextView>
+			<TextView android:text="@string/ymm_text" 
+				android:layout_width="0dp"
+				android:layout_weight="0.6"
+				android:layout_height="wrap_content" 
+				android:id="@+id/checkin_year_make_model_row"
+				android:textSize="13sp"
+				android:textColor="@color/list_view_text_strong">
+			</TextView>
+		</LinearLayout>
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:id="@+id/checkin_vin_row"
+			android:textSize="12sp"
+			android:textColor="@color/list_view_text_normal">
+		</TextView>
+		<TextView android:text="@string/provider_text" 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:id="@+id/checkin_provider_row"
+			android:textSize="12sp"
+			android:textColor="@color/list_view_text_normal">
+		</TextView>
+	</LinearLayout>
+	
+    <!-- TFS ticket# 61163 - Using TextView instead of the ImageView to display the icon and the text together in one view -->
+
+    <TextView
+        android:id="@+id/checkin_elapsedHrs_row"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:gravity="center"
+        android:layout_gravity="center_vertical"
+        android:paddingTop="5dp"
+        android:text="@string/elapsedHrs_text"
+        android:textColor="@color/list_view_text_normal"
+        android:textSize="12sp" >
+    </TextView>
+    <!--
+	<ImageView android:layout_height="25dp" 
+	    android:src="@drawable/chevron_button" 
+	    android:id="@+id/img_list_arrow" 
+	    android:layout_width="25dp"
+	    android:layout_gravity="right|center_vertical"
+	    android:layout_marginRight="5dp">
+    </ImageView>	
+    -->
+
+
+</LinearLayout>

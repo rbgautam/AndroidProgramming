@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+  	android:background="@drawable/listview_selector">
+  	<LinearLayout android:orientation="vertical"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight=".95"
+	  	android:layout_marginLeft="10dp"
+	  	android:layout_marginTop="10dp"
+	  	android:layout_marginBottom="10dp">
+	  	
+		<LinearLayout android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/reshoot_stock_vnn_row">
+  	    
+			<TextView android:text="@string/stock_text" 
+				android:layout_width="0dp"
+				android:layout_weight="0.3"
+				android:layout_height="wrap_content" 
+				android:id="@+id/reshoot_stock_row"
+				android:textSize="13sp"
+				android:textColor="@color/list_view_text_strong">
+			</TextView>
+			<TextView android:text="@string/ymm_text" 
+				android:layout_width="0dp"
+				android:layout_weight="0.7"
+				android:layout_height="wrap_content" 
+				android:id="@+id/reshoot_year_make_model_row"
+				android:textSize="13sp"
+				android:textColor="@color/list_view_text_strong">
+			</TextView>
+		</LinearLayout>
+		<TextView android:text="@string/provider_text" 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:id="@+id/reshoot_provider_row"
+			android:textSize="12sp"
+			android:textColor="@color/list_view_text_normal">
+		</TextView>
+	
+		<LinearLayout android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/reshoot_stat_location_row">
+			
+			<TextView android:text="@string/status_text" 
+				android:layout_width="0dp"
+				android:layout_weight="0.8"
+				android:layout_height="wrap_content" 
+				android:id="@+id/reshoot_status_row"
+				android:textSize="12sp"
+				android:textColor="@color/list_view_text_normal">
+			</TextView>
+			<TextView android:text="@string/location_text" 
+				android:layout_width="0dp"
+				android:layout_weight="0.2"
+				android:layout_height="wrap_content" 
+				android:id="@+id/reshoot_location"
+				android:textSize="12sp"
+				android:textColor="@color/list_view_text_normal">
+			</TextView>
+		</LinearLayout>		
+			</LinearLayout>
+	<ImageView android:layout_height="25dp" 
+	    android:src="@drawable/chevron_button" 
+	    android:id="@+id/img_list_arrow" 
+	    android:layout_width="25dp"
+	    android:layout_gravity="right|center_vertical"
+	    android:layout_marginRight="15dp">
+    </ImageView>	
+
+</LinearLayout>

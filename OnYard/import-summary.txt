@@ -1,0 +1,546 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Manifest Merging:
+-----------------
+Your project uses libraries that provide manifests, and your Eclipse
+project did not explicitly turn on manifest merging. In Android Gradle
+projects, manifests are always merged (meaning that contents from your
+libraries' manifests will be merged into the app manifest. If you had
+manually copied contents from library manifests into your app manifest
+you may need to remove these for the app to build correctly.
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+From OnYard:
+* .factorypath
+* .idea\
+* .idea\OnYard.iml
+* .idea\compiler.xml
+* .idea\copyright\
+* .idea\copyright\profiles_settings.xml
+* .idea\misc.xml
+* .idea\modules.xml
+* .idea\workspace.xml
+* .tpignore
+* build.xml
+* crashlytics.properties
+* debug.keystore
+* default.properties
+* doc\
+* doc\allclasses-frame.html
+* doc\allclasses-noframe.html
+* doc\com\
+* doc\com\google\
+* doc\com\google\android\
+* doc\com\google\android\gms\
+* doc\com\google\android\gms\R.attr.html
+* doc\com\google\android\gms\R.html
+* doc\com\google\android\gms\R.id.html
+* doc\com\google\android\gms\R.string.html
+* doc\com\google\android\gms\R.styleable.html
+* doc\com\google\android\gms\class-use\
+* doc\com\google\android\gms\class-use\R.attr.html
+* doc\com\google\android\gms\class-use\R.html
+* doc\com\google\android\gms\class-use\R.id.html
+* doc\com\google\android\gms\class-use\R.string.html
+* doc\com\google\android\gms\class-use\R.styleable.html
+* doc\com\google\android\gms\package-frame.html
+* doc\com\google\android\gms\package-summary.html
+* doc\com\google\android\gms\package-tree.html
+* doc\com\google\android\gms\package-use.html
+* doc\com\iaai\
+* doc\com\iaai\onyard\
+* doc\com\iaai\onyard\BuildConfig.html
+* doc\com\iaai\onyard\Manifest.html
+* doc\com\iaai\onyard\Manifest.permission.html
+* doc\com\iaai\onyard\R.array.html
+* doc\com\iaai\onyard\R.attr.html
+* doc\com\iaai\onyard\R.color.html
+* doc\com\iaai\onyard\R.dimen.html
+* doc\com\iaai\onyard\R.drawable.html
+* doc\com\iaai\onyard\R.html
+* doc\com\iaai\onyard\R.id.html
+* doc\com\iaai\onyard\R.layout.html
+* doc\com\iaai\onyard\R.menu.html
+* doc\com\iaai\onyard\R.string.html
+* doc\com\iaai\onyard\R.style.html
+* doc\com\iaai\onyard\R.styleable.html
+* doc\com\iaai\onyard\R.xml.html
+* doc\com\iaai\onyard\activity\
+* doc\com\iaai\onyard\activity\AccountPreferencesActivity.html
+* doc\com\iaai\onyard\activity\CSAWebActivity.html
+* doc\com\iaai\onyard\activity\MainActivity.html
+* doc\com\iaai\onyard\activity\VehicleDetailsActivity.html
+* doc\com\iaai\onyard\activity\VehicleDrawActivity.html
+* doc\com\iaai\onyard\activity\VehicleListActivity.html
+* doc\com\iaai\onyard\activity\VehicleMapActivity.GeoUpdateHandler.html
+* doc\com\iaai\onyard\activity\VehicleMapActivity.html
+* doc\com\iaai\onyard\activity\class-use\
+* doc\com\iaai\onyard\activity\class-use\AccountPreferencesActivity.html
+* doc\com\iaai\onyard\activity\class-use\CSAWebActivity.html
+* doc\com\iaai\onyard\activity\class-use\MainActivity.html
+* doc\com\iaai\onyard\activity\class-use\VehicleDetailsActivity.html
+* doc\com\iaai\onyard\activity\class-use\VehicleDrawActivity.html
+* doc\com\iaai\onyard\activity\class-use\VehicleListActivity.html
+* doc\com\iaai\onyard\activity\class-use\VehicleMapActivity.GeoUpdateHandler.html
+* doc\com\iaai\onyard\activity\class-use\VehicleMapActivity.html
+* doc\com\iaai\onyard\activity\package-frame.html
+* doc\com\iaai\onyard\activity\package-summary.html
+* doc\com\iaai\onyard\activity\package-tree.html
+* doc\com\iaai\onyard\activity\package-use.html
+* doc\com\iaai\onyard\adapter\
+* doc\com\iaai\onyard\adapter\VehicleArrayAdapter.html
+* doc\com\iaai\onyard\adapter\class-use\
+* doc\com\iaai\onyard\adapter\class-use\VehicleArrayAdapter.html
+* doc\com\iaai\onyard\adapter\package-frame.html
+* doc\com\iaai\onyard\adapter\package-summary.html
+* doc\com\iaai\onyard\adapter\package-tree.html
+* doc\com\iaai\onyard\adapter\package-use.html
+* doc\com\iaai\onyard\authenticator\
+* doc\com\iaai\onyard\authenticator\AccountAuthenticatorService.html
+* doc\com\iaai\onyard\authenticator\class-use\
+* doc\com\iaai\onyard\authenticator\class-use\AccountAuthenticatorService.html
+* doc\com\iaai\onyard\authenticator\package-frame.html
+* doc\com\iaai\onyard\authenticator\package-summary.html
+* doc\com\iaai\onyard\authenticator\package-tree.html
+* doc\com\iaai\onyard\authenticator\package-use.html
+* doc\com\iaai\onyard\camera\
+* doc\com\iaai\onyard\camera\CameraActivity.BackConfirmDialogFragment.html
+* doc\com\iaai\onyard\camera\CameraActivity.NotSavedDialogFragment.html
+* doc\com\iaai\onyard\camera\CameraActivity.html
+* doc\com\iaai\onyard\camera\CameraPreview.html
+* doc\com\iaai\onyard\camera\CommitImagesTask.html
+* doc\com\iaai\onyard\camera\DeleteImageTask.html
+* doc\com\iaai\onyard\camera\ErrorDialogFragment.html
+* doc\com\iaai\onyard\camera\ImageDirHelper.html
+* doc\com\iaai\onyard\camera\ImageReviewActivity.html
+* doc\com\iaai\onyard\camera\ImageReviewFragment.html
+* doc\com\iaai\onyard\camera\ImageSaveActivity.QuitConfirmDialogFragment.html
+* doc\com\iaai\onyard\camera\ImageSaveActivity.html
+* doc\com\iaai\onyard\camera\ImagerData.html
+* doc\com\iaai\onyard\camera\ImagerHttpPost.html
+* doc\com\iaai\onyard\camera\OnYardHttpPost.html
+* doc\com\iaai\onyard\camera\PopulateCaptionsListener.html
+* doc\com\iaai\onyard\camera\PopulateCaptionsTask.html
+* doc\com\iaai\onyard\camera\ProgressDialogFragment.html
+* doc\com\iaai\onyard\camera\Resolution.html
+* doc\com\iaai\onyard\camera\ResolutionHelper.html
+* doc\com\iaai\onyard\camera\SaveImageListener.html
+* doc\com\iaai\onyard\camera\SaveImageTask.html
+* doc\com\iaai\onyard\camera\ThumbnailAdapter.html
+* doc\com\iaai\onyard\camera\ThumbnailFragment.html
+* doc\com\iaai\onyard\camera\class-use\
+* doc\com\iaai\onyard\camera\class-use\CameraActivity.BackConfirmDialogFragment.html
+* doc\com\iaai\onyard\camera\class-use\CameraActivity.NotSavedDialogFragment.html
+* doc\com\iaai\onyard\camera\class-use\CameraActivity.html
+* doc\com\iaai\onyard\camera\class-use\CameraPreview.html
+* doc\com\iaai\onyard\camera\class-use\CommitImagesTask.html
+* doc\com\iaai\onyard\camera\class-use\DeleteImageTask.html
+* doc\com\iaai\onyard\camera\class-use\ErrorDialogFragment.html
+* doc\com\iaai\onyard\camera\class-use\ImageDirHelper.html
+* doc\com\iaai\onyard\camera\class-use\ImageReviewActivity.html
+* doc\com\iaai\onyard\camera\class-use\ImageReviewFragment.html
+* doc\com\iaai\onyard\camera\class-use\ImageSaveActivity.QuitConfirmDialogFragment.html
+* doc\com\iaai\onyard\camera\class-use\ImageSaveActivity.html
+* doc\com\iaai\onyard\camera\class-use\ImagerData.html
+* doc\com\iaai\onyard\camera\class-use\ImagerHttpPost.html
+* doc\com\iaai\onyard\camera\class-use\OnYardHttpPost.html
+* doc\com\iaai\onyard\camera\class-use\PopulateCaptionsListener.html
+* doc\com\iaai\onyard\camera\class-use\PopulateCaptionsTask.html
+* doc\com\iaai\onyard\camera\class-use\ProgressDialogFragment.html
+* doc\com\iaai\onyard\camera\class-use\Resolution.html
+* doc\com\iaai\onyard\camera\class-use\ResolutionHelper.html
+* doc\com\iaai\onyard\camera\class-use\SaveImageListener.html
+* doc\com\iaai\onyard\camera\class-use\SaveImageTask.html
+* doc\com\iaai\onyard\camera\class-use\ThumbnailAdapter.html
+* doc\com\iaai\onyard\camera\class-use\ThumbnailFragment.html
+* doc\com\iaai\onyard\camera\package-frame.html
+* doc\com\iaai\onyard\camera\package-summary.html
+* doc\com\iaai\onyard\camera\package-tree.html
+* doc\com\iaai\onyard\camera\package-use.html
+* doc\com\iaai\onyard\class-use\
+* doc\com\iaai\onyard\class-use\BuildConfig.html
+* doc\com\iaai\onyard\class-use\Manifest.html
+* doc\com\iaai\onyard\class-use\Manifest.permission.html
+* doc\com\iaai\onyard\class-use\R.array.html
+* doc\com\iaai\onyard\class-use\R.attr.html
+* doc\com\iaai\onyard\class-use\R.color.html
+* doc\com\iaai\onyard\class-use\R.dimen.html
+* doc\com\iaai\onyard\class-use\R.drawable.html
+* doc\com\iaai\onyard\class-use\R.html
+* doc\com\iaai\onyard\class-use\R.id.html
+* doc\com\iaai\onyard\class-use\R.layout.html
+* doc\com\iaai\onyard\class-use\R.menu.html
+* doc\com\iaai\onyard\class-use\R.string.html
+* doc\com\iaai\onyard\class-use\R.style.html
+* doc\com\iaai\onyard\class-use\R.styleable.html
+* doc\com\iaai\onyard\class-use\R.xml.html
+* doc\com\iaai\onyard\classes\
+* doc\com\iaai\onyard\classes\OnYard.LogMode.html
+* doc\com\iaai\onyard\classes\OnYard.html
+* doc\com\iaai\onyard\classes\class-use\
+* doc\com\iaai\onyard\classes\class-use\OnYard.LogMode.html
+* doc\com\iaai\onyard\classes\class-use\OnYard.html
+* doc\com\iaai\onyard\classes\package-frame.html
+* doc\com\iaai\onyard\classes\package-summary.html
+* doc\com\iaai\onyard\classes\package-tree.html
+* doc\com\iaai\onyard\classes\package-use.html
+* doc\com\iaai\onyard\mail\
+* doc\com\iaai\onyard\mail\EmailSender.html
+* doc\com\iaai\onyard\mail\class-use\
+* doc\com\iaai\onyard\mail\class-use\EmailSender.html
+* doc\com\iaai\onyard\mail\package-frame.html
+* doc\com\iaai\onyard\mail\package-summary.html
+* doc\com\iaai\onyard\mail\package-tree.html
+* doc\com\iaai\onyard\mail\package-use.html
+* doc\com\iaai\onyard\package-frame.html
+* doc\com\iaai\onyard\package-summary.html
+* doc\com\iaai\onyard\package-tree.html
+* doc\com\iaai\onyard\package-use.html
+* doc\com\iaai\onyard\performancetest\
+* doc\com\iaai\onyard\performancetest\Timer.html
+* doc\com\iaai\onyard\performancetest\class-use\
+* doc\com\iaai\onyard\performancetest\class-use\Timer.html
+* doc\com\iaai\onyard\performancetest\package-frame.html
+* doc\com\iaai\onyard\performancetest\package-summary.html
+* doc\com\iaai\onyard\performancetest\package-tree.html
+* doc\com\iaai\onyard\performancetest\package-use.html
+* doc\com\iaai\onyard\ssl\
+* doc\com\iaai\onyard\ssl\TrustAllManager.html
+* doc\com\iaai\onyard\ssl\TrustAllSSLSocketFactory.html
+* doc\com\iaai\onyard\ssl\class-use\
+* doc\com\iaai\onyard\ssl\class-use\TrustAllManager.html
+* doc\com\iaai\onyard\ssl\class-use\TrustAllSSLSocketFactory.html
+* doc\com\iaai\onyard\ssl\package-frame.html
+* doc\com\iaai\onyard\ssl\package-summary.html
+* doc\com\iaai\onyard\ssl\package-tree.html
+* doc\com\iaai\onyard\ssl\package-use.html
+* doc\com\iaai\onyard\sync\
+* doc\com\iaai\onyard\sync\AlarmReceiver.html
+* doc\com\iaai\onyard\sync\BootReceiver.html
+* doc\com\iaai\onyard\sync\NightlySync.html
+* doc\com\iaai\onyard\sync\OnDemandSync.html
+* doc\com\iaai\onyard\sync\OnYardSyncAdapterService.html
+* doc\com\iaai\onyard\sync\class-use\
+* doc\com\iaai\onyard\sync\class-use\AlarmReceiver.html
+* doc\com\iaai\onyard\sync\class-use\BootReceiver.html
+* doc\com\iaai\onyard\sync\class-use\NightlySync.html
+* doc\com\iaai\onyard\sync\class-use\OnDemandSync.html
+* doc\com\iaai\onyard\sync\class-use\OnYardSyncAdapterService.html
+* doc\com\iaai\onyard\sync\package-frame.html
+* doc\com\iaai\onyard\sync\package-summary.html
+* doc\com\iaai\onyard\sync\package-tree.html
+* doc\com\iaai\onyard\sync\package-use.html
+* doc\com\iaai\onyard\tasks\
+* doc\com\iaai\onyard\tasks\EndStockSessionTask.html
+* doc\com\iaai\onyard\tasks\PingOnYardServerTask.html
+* doc\com\iaai\onyard\tasks\class-use\
+* doc\com\iaai\onyard\tasks\class-use\EndStockSessionTask.html
+* doc\com\iaai\onyard\tasks\class-use\PingOnYardServerTask.html
+* doc\com\iaai\onyard\tasks\package-frame.html
+* doc\com\iaai\onyard\tasks\package-summary.html
+* doc\com\iaai\onyard\tasks\package-tree.html
+* doc\com\iaai\onyard\tasks\package-use.html
+* doc\com\iaai\onyard\test\
+* doc\com\iaai\onyard\test\BuildConfig.html
+* doc\com\iaai\onyard\test\ImageLoopTestCases.html
+* doc\com\iaai\onyard\test\ImagerDataTest.html
+* doc\com\iaai\onyard\test\R.attr.html
+* doc\com\iaai\onyard\test\R.drawable.html
+* doc\com\iaai\onyard\test\R.html
+* doc\com\iaai\onyard\test\R.string.html
+* doc\com\iaai\onyard\test\ReviewImagesTestCases.html
+* doc\com\iaai\onyard\test\class-use\
+* doc\com\iaai\onyard\test\class-use\BuildConfig.html
+* doc\com\iaai\onyard\test\class-use\ImageLoopTestCases.html
+* doc\com\iaai\onyard\test\class-use\ImagerDataTest.html
+* doc\com\iaai\onyard\test\class-use\R.attr.html
+* doc\com\iaai\onyard\test\class-use\R.drawable.html
+* doc\com\iaai\onyard\test\class-use\R.html
+* doc\com\iaai\onyard\test\class-use\R.string.html
+* doc\com\iaai\onyard\test\class-use\ReviewImagesTestCases.html
+* doc\com\iaai\onyard\test\package-frame.html
+* doc\com\iaai\onyard\test\package-summary.html
+* doc\com\iaai\onyard\test\package-tree.html
+* doc\com\iaai\onyard\test\package-use.html
+* doc\com\iaai\onyard\utility\
+* doc\com\iaai\onyard\utility\DataHelper.html
+* doc\com\iaai\onyard\utility\HTTPHelper.html
+* doc\com\iaai\onyard\utility\JSONHelper.html
+* doc\com\iaai\onyard\utility\LogHelper.html
+* doc\com\iaai\onyard\utility\MetricsHelper.html
+* doc\com\iaai\onyard\utility\PreferenceHelper.html
+* doc\com\iaai\onyard\utility\SearchHelper.html
+* doc\com\iaai\onyard\utility\SyncHelper.html
+* doc\com\iaai\onyard\utility\class-use\
+* doc\com\iaai\onyard\utility\class-use\DataHelper.html
+* doc\com\iaai\onyard\utility\class-use\HTTPHelper.html
+* doc\com\iaai\onyard\utility\class-use\JSONHelper.html
+* doc\com\iaai\onyard\utility\class-use\LogHelper.html
+* doc\com\iaai\onyard\utility\class-use\MetricsHelper.html
+* doc\com\iaai\onyard\utility\class-use\PreferenceHelper.html
+* doc\com\iaai\onyard\utility\class-use\SearchHelper.html
+* doc\com\iaai\onyard\utility\class-use\SyncHelper.html
+* doc\com\iaai\onyard\utility\package-frame.html
+* doc\com\iaai\onyard\utility\package-summary.html
+* doc\com\iaai\onyard\utility\package-tree.html
+* doc\com\iaai\onyard\utility\package-use.html
+* doc\com\iaai\onyard\view\
+* doc\com\iaai\onyard\view\DrawView.html
+* doc\com\iaai\onyard\view\class-use\
+* doc\com\iaai\onyard\view\class-use\DrawView.html
+* doc\com\iaai\onyard\view\package-frame.html
+* doc\com\iaai\onyard\view\package-summary.html
+* doc\com\iaai\onyard\view\package-tree.html
+* doc\com\iaai\onyard\view\package-use.html
+* doc\com\iaai\onyardproviderapi\
+* doc\com\iaai\onyardproviderapi\BuildConfig.html
+* doc\com\iaai\onyardproviderapi\R.attr.html
+* doc\com\iaai\onyardproviderapi\R.drawable.html
+* doc\com\iaai\onyardproviderapi\R.html
+* doc\com\iaai\onyardproviderapi\R.string.html
+* doc\com\iaai\onyardproviderapi\R.style.html
+* doc\com\iaai\onyardproviderapi\class-use\
+* doc\com\iaai\onyardproviderapi\class-use\BuildConfig.html
+* doc\com\iaai\onyardproviderapi\class-use\R.attr.html
+* doc\com\iaai\onyardproviderapi\class-use\R.drawable.html
+* doc\com\iaai\onyardproviderapi\class-use\R.html
+* doc\com\iaai\onyardproviderapi\class-use\R.string.html
+* doc\com\iaai\onyardproviderapi\class-use\R.style.html
+* doc\com\iaai\onyardproviderapi\classes\
+* doc\com\iaai\onyardproviderapi\classes\BlobPendingSync.html
+* doc\com\iaai\onyardproviderapi\classes\ColorInfo.html
+* doc\com\iaai\onyardproviderapi\classes\DamageInfo.html
+* doc\com\iaai\onyardproviderapi\classes\DataPendingSync.html
+* doc\com\iaai\onyardproviderapi\classes\ImageCaptionInfo.html
+* doc\com\iaai\onyardproviderapi\classes\MetricsInfo.html
+* doc\com\iaai\onyardproviderapi\classes\SelectionClause.html
+* doc\com\iaai\onyardproviderapi\classes\StatusInfo.html
+* doc\com\iaai\onyardproviderapi\classes\VehicleInfo.html
+* doc\com\iaai\onyardproviderapi\classes\class-use\
+* doc\com\iaai\onyardproviderapi\classes\class-use\BlobPendingSync.html
+* doc\com\iaai\onyardproviderapi\classes\class-use\ColorInfo.html
+* doc\com\iaai\onyardproviderapi\classes\class-use\DamageInfo.html
+* doc\com\iaai\onyardproviderapi\classes\class-use\DataPendingSync.html
+* doc\com\iaai\onyardproviderapi\classes\class-use\ImageCaptionInfo.html
+* doc\com\iaai\onyardproviderapi\classes\class-use\MetricsInfo.html
+* doc\com\iaai\onyardproviderapi\classes\class-use\SelectionClause.html
+* doc\com\iaai\onyardproviderapi\classes\class-use\StatusInfo.html
+* doc\com\iaai\onyardproviderapi\classes\class-use\VehicleInfo.html
+* doc\com\iaai\onyardproviderapi\classes\package-frame.html
+* doc\com\iaai\onyardproviderapi\classes\package-summary.html
+* doc\com\iaai\onyardproviderapi\classes\package-tree.html
+* doc\com\iaai\onyardproviderapi\classes\package-use.html
+* doc\com\iaai\onyardproviderapi\contract\
+* doc\com\iaai\onyardproviderapi\contract\OnYardContract.BlobPendingSync.html
+* doc\com\iaai\onyardproviderapi\contract\OnYardContract.Color.html
+* doc\com\iaai\onyardproviderapi\contract\OnYardContract.Config.html
+* doc\com\iaai\onyardproviderapi\contract\OnYardContract.Damage.html
+* doc\com\iaai\onyardproviderapi\contract\OnYardContract.DataPendingSync.html
+* doc\com\iaai\onyardproviderapi\contract\OnYardContract.ImageCaption.html
+* doc\com\iaai\onyardproviderapi\contract\OnYardContract.LogEvent.html
+* doc\com\iaai\onyardproviderapi\contract\OnYardContract.Metrics.html
+* doc\com\iaai\onyardproviderapi\contract\OnYardContract.Status.html
+* doc\com\iaai\onyardproviderapi\contract\OnYardContract.Vehicles.html
+* doc\com\iaai\onyardproviderapi\contract\OnYardContract.html
+* doc\com\iaai\onyardproviderapi\contract\class-use\
+* doc\com\iaai\onyardproviderapi\contract\class-use\OnYardContract.BlobPendingSync.html
+* doc\com\iaai\onyardproviderapi\contract\class-use\OnYardContract.Color.html
+* doc\com\iaai\onyardproviderapi\contract\class-use\OnYardContract.Config.html
+* doc\com\iaai\onyardproviderapi\contract\class-use\OnYardContract.Damage.html
+* doc\com\iaai\onyardproviderapi\contract\class-use\OnYardContract.DataPendingSync.html
+* doc\com\iaai\onyardproviderapi\contract\class-use\OnYardContract.ImageCaption.html
+* doc\com\iaai\onyardproviderapi\contract\class-use\OnYardContract.LogEvent.html
+* doc\com\iaai\onyardproviderapi\contract\class-use\OnYardContract.Metrics.html
+* doc\com\iaai\onyardproviderapi\contract\class-use\OnYardContract.Status.html
+* doc\com\iaai\onyardproviderapi\contract\class-use\OnYardContract.Vehicles.html
+* doc\com\iaai\onyardproviderapi\contract\class-use\OnYardContract.html
+* doc\com\iaai\onyardproviderapi\contract\package-frame.html
+* doc\com\iaai\onyardproviderapi\contract\package-summary.html
+* doc\com\iaai\onyardproviderapi\contract\package-tree.html
+* doc\com\iaai\onyardproviderapi\contract\package-use.html
+* doc\com\iaai\onyardproviderapi\package-frame.html
+* doc\com\iaai\onyardproviderapi\package-summary.html
+* doc\com\iaai\onyardproviderapi\package-tree.html
+* doc\com\iaai\onyardproviderapi\package-use.html
+* doc\com\iaai\onyardproviderimpl\
+* doc\com\iaai\onyardproviderimpl\BuildConfig.html
+* doc\com\iaai\onyardproviderimpl\R.drawable.html
+* doc\com\iaai\onyardproviderimpl\R.html
+* doc\com\iaai\onyardproviderimpl\R.string.html
+* doc\com\iaai\onyardproviderimpl\R.style.html
+* doc\com\iaai\onyardproviderimpl\class-use\
+* doc\com\iaai\onyardproviderimpl\class-use\BuildConfig.html
+* doc\com\iaai\onyardproviderimpl\class-use\R.drawable.html
+* doc\com\iaai\onyardproviderimpl\class-use\R.html
+* doc\com\iaai\onyardproviderimpl\class-use\R.string.html
+* doc\com\iaai\onyardproviderimpl\class-use\R.style.html
+* doc\com\iaai\onyardproviderimpl\package-frame.html
+* doc\com\iaai\onyardproviderimpl\package-summary.html
+* doc\com\iaai\onyardproviderimpl\package-tree.html
+* doc\com\iaai\onyardproviderimpl\package-use.html
+* doc\com\iaai\onyardproviderimpl\provider\
+* doc\com\iaai\onyardproviderimpl\provider\OnYardProvider.html
+* doc\com\iaai\onyardproviderimpl\provider\class-use\
+* doc\com\iaai\onyardproviderimpl\provider\class-use\OnYardProvider.html
+* doc\com\iaai\onyardproviderimpl\provider\package-frame.html
+* doc\com\iaai\onyardproviderimpl\provider\package-summary.html
+* doc\com\iaai\onyardproviderimpl\provider\package-tree.html
+* doc\com\iaai\onyardproviderimpl\provider\package-use.html
+* doc\constant-values.html
+* doc\deprecated-list.html
+* doc\help-doc.html
+* doc\index-files\
+* doc\index-files\index-1.html
+* doc\index-files\index-10.html
+* doc\index-files\index-11.html
+* doc\index-files\index-12.html
+* doc\index-files\index-13.html
+* doc\index-files\index-14.html
+* doc\index-files\index-15.html
+* doc\index-files\index-16.html
+* doc\index-files\index-17.html
+* doc\index-files\index-18.html
+* doc\index-files\index-19.html
+* doc\index-files\index-2.html
+* doc\index-files\index-20.html
+* doc\index-files\index-21.html
+* doc\index-files\index-22.html
+* doc\index-files\index-23.html
+* doc\index-files\index-24.html
+* doc\index-files\index-3.html
+* doc\index-files\index-4.html
+* doc\index-files\index-5.html
+* doc\index-files\index-6.html
+* doc\index-files\index-7.html
+* doc\index-files\index-8.html
+* doc\index-files\index-9.html
+* doc\index.html
+* doc\overview-frame.html
+* doc\overview-summary.html
+* doc\overview-tree.html
+* doc\package-list
+* doc\resources\
+* doc\resources\background.gif
+* doc\resources\tab.gif
+* doc\resources\titlebar.gif
+* doc\resources\titlebar_end.gif
+* doc\serialized-form.html
+* doc\stylesheet.css
+* onyard-release-key.keystore
+* proguard-project.txt
+* proguard.cfg
+From OnYardProviderApi:
+* .tpignore
+* OnYardProviderApi.iml
+* build.xml
+* proguard-project.txt
+From OnYardProviderImpl:
+* .tpignore
+* OnYardProviderImpl.iml
+* build.xml
+* proguard-project.txt
+From ViewPagerIndicator:
+* .tpignore
+* ViewPagerIndicator.iml
+* pom.xml
+From Zxing:
+* .tpignore
+* Zxing.iml
+* ant.properties
+* build.xml
+
+Replaced Jars with Dependencies:
+--------------------------------
+The importer recognized the following .jar files as third party
+libraries and replaced them with Gradle dependencies instead. This has
+the advantage that more explicit version information is known, and the
+libraries can be updated automatically. However, it is possible that
+the .jar file in your project was of an older version than the
+dependency we picked, which could render the project not compileable.
+You can disable the jar replacement in the import wizard and try again:
+
+android-support-v4.jar => com.android.support:support-v4:18.0.0
+
+Replaced Libraries with Dependencies:
+-------------------------------------
+The importer recognized the following library projects as third party
+libraries and replaced them with Gradle dependencies instead. This has
+the advantage that more explicit version information is known, and the
+libraries can be updated automatically. However, it is possible that
+the source files in your project were of an older version than the
+dependency we picked, which could render the project not compileable.
+You can disable the library replacement in the import wizard and try
+again:
+
+google-play-services_lib => [com.google.android.gms:play-services:+]
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+In OnYardProviderApi:
+* AndroidManifest.xml => onYardProviderApi\src\main\AndroidManifest.xml
+* assets\ => onYardProviderApi\src\main\assets
+* res\ => onYardProviderApi\src\main\res\
+* src\ => onYardProviderApi\src\main\java\
+In OnYardProviderImpl:
+* AndroidManifest.xml => onYardProviderImpl\src\main\AndroidManifest.xml
+* assets\ => onYardProviderImpl\src\main\assets
+* res\ => onYardProviderImpl\src\main\res\
+* src\ => onYardProviderImpl\src\main\java\
+In ViewPagerIndicator:
+* AndroidManifest.xml => viewPagerIndicator\src\main\AndroidManifest.xml
+* assets\ => viewPagerIndicator\src\main\assets
+* res\ => viewPagerIndicator\src\main\res\
+* src\ => viewPagerIndicator\src\main\java\
+In Zxing:
+* AndroidManifest.xml => zxing\src\main\AndroidManifest.xml
+* assets\ => zxing\src\main\assets\
+* libs\core-2.2.jar => zxing\libs\core-2.2.jar
+* proguard-android-optimize.txt => zxing\proguard-android-optimize.txt
+* res\ => zxing\src\main\res\
+* src\ => zxing\src\main\java\
+In OnYard:
+* .apt_generated\ => onYard\src\main\java\
+* AndroidManifest.xml => onYard\src\main\AndroidManifest.xml
+* assets\ => onYard\src\main\assets\
+* libs\activation.jar => onYard\libs\activation.jar
+* libs\additionnal.jar => onYard\libs\additionnal.jar
+* libs\armeabi\libleadtools.codecs.cmp.so => onYard\src\main\jniLibs\armeabi\libleadtools.codecs.cmp.so
+* libs\armeabi\libleadtools.codecs.so => onYard\src\main\jniLibs\armeabi\libleadtools.codecs.so
+* libs\armeabi\libleadtools.so => onYard\src\main\jniLibs\armeabi\libleadtools.so
+* libs\butterknife-5.0.0.jar => onYard\libs\butterknife-5.0.0.jar
+* libs\crashlytics.jar => onYard\libs\crashlytics.jar
+* libs\jcifs-1.3.17.jar => onYard\libs\jcifs-1.3.17.jar
+* libs\leadtools.codecs.jar => onYard\libs\leadtools.codecs.jar
+* libs\leadtools.jar => onYard\libs\leadtools.jar
+* libs\mail.jar => onYard\libs\mail.jar
+* libs\otto-1.3.4.jar => onYard\libs\otto-1.3.4.jar
+* libs\picasso-2.3.2.jar => onYard\libs\picasso-2.3.2.jar
+* lint.xml => onYard\lint.xml
+* res\ => onYard\src\main\res\
+* src\ => onYard\src\main\java\
+* Test\res\ => onYard\src\androidTest\res\
+* Test\src\ => onYard\src\androidTest\java\
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/login_dialog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:color="@color/default_black"
+   	android:background="@color/default_background">
+   		<TextView 
+   		    android:id="@+id/txtLoginHeader"
+        	android:layout_width="match_parent"
+        	android:layout_height="match_parent"
+			android:textSize="20sp"
+			android:gravity="center"
+			android:text="@string/login_header"
+			android:textColor="@color/default_black"/>
+   		<View android:layout_width="match_parent"
+   		    android:layout_height="1dp"
+   		    android:background="@color/default_black"
+        	android:layout_marginTop="5dp" />
+		<EditText
+		    android:inputType="text"
+		    android:id="@+id/txt_login"
+		    android:hint="@string/login_hint"
+		    android:layout_width="250dp"
+        	android:layout_height="wrap_content"
+        	android:layout_marginTop="10dp"
+	        android:textSize="20sp"
+            android:visibility="visible"
+            android:textColor="@color/default_black"
+	         />
+		<EditText
+		    android:inputType="textPassword"
+		    android:id="@+id/txt_password"
+		    android:hint="@string/password_hint"
+			android:layout_width="250dp"
+        	android:layout_height="wrap_content"
+	        android:textSize="20sp"
+            android:visibility="visible"
+            android:textColor="@color/default_black"
+	         />
+		<LinearLayout 
+        	android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:orientation="horizontal"
+        	android:paddingTop="20dp"
+        	style="@android:attr/buttonBarStyle">
+	        <Button
+	            android:id="@+id/btn_cancel"
+	            android:layout_width="0dp"
+	            android:layout_weight="1"
+	            android:layout_height="wrap_content"
+	            android:text="@string/cancel_caption"
+        		style="@android:attr/buttonBarButtonStyle" />
+	        
+	        <Button
+	            android:id="@+id/btn_login"
+	            android:layout_width="0dp"
+	            android:layout_weight="1"
+	            android:layout_height="wrap_content"
+	            android:text="@string/button_ok"
+        		style="@android:attr/buttonBarButtonStyle" />
+		</LinearLayout>
+	    <TextView android:text="@string/username_required_message" 
+		    android:id="@+id/lbl_missing_username" 
+		    android:layout_width="wrap_content" 
+		    android:layout_height="wrap_content"
+		    android:textColor="@color/error_message_text"
+		    android:visibility="gone">
+	    </TextView>
+	    <TextView android:text="@string/password_required_message" 
+		    android:id="@+id/lbl_missing_password" 
+		    android:layout_width="wrap_content" 
+		    android:layout_height="wrap_content"
+		    android:textColor="@color/error_message_text"
+		    android:visibility="gone">
+	    </TextView>
+	    <TextView android:text="@string/login_failed_message" 
+		    android:id="@+id/lbl_login_failed" 
+		    android:layout_width="wrap_content" 
+		    android:layout_height="wrap_content"
+		    android:textColor="@color/error_message_text"
+		    android:visibility="gone">
+	    </TextView>	   
+	  	<TextView android:text="@string/password_expired_message" 
+		    android:id="@+id/lbl_password_expired" 
+		    android:layout_width="wrap_content" 
+		    android:layout_height="wrap_content"
+		    android:textColor="@color/error_message_text"
+		    android:visibility="gone">
+	    </TextView>	  
+</LinearLayout>

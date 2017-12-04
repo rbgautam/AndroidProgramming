@@ -1,0 +1,20 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation = "horizontal">
+
+   
+	        
+    <android.support.v4.view.ViewPager
+        android:id="@+id/image_review_pager"
+        android:name="com.iaai.onyard.camera.ImageReviewFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center" />
+
+   </LinearLayout>
+
+ 
+
+

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/row_field_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:text="Field Name" />
+
+        <TextView
+            android:id="@+id/row_field_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="@string/no_value_entered" />
+
+    </LinearLayout>
+    
+    <View android:layout_width="1dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center_vertical"
+        android:background="@color/default_gray"></View>
+
+    <ImageView
+        android:id="@+id/row_status_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/question"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="25dp" />
+
+</LinearLayout>

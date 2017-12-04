@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.iaai.onyard"
+    android:versionCode="23200"
+    android:versionName="2.32.0.6D" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_SYNC_STATS" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SET_DEBUG_APP" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.iaai.onyard.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+    <permission
+        android:name="com.iaai.onyard.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="19" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera.flash" />
+    <uses-feature android:glEsVersion="0x00020000" android:required="true" />
+
+    <application
+        android:icon="@drawable/onyard_icon"
+        android:label="@string/app_name"
+        android:theme="@style/OnYardActionBarTheme"
+        android:name="com.iaai.onyard.application.OnYardApplication" >
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyBvbTIhScBL94zG5pwPwHF6o0HAgS7KPQY" />
+        <meta-data
+	        android:name="com.google.android.gms.version"
+	        android:value="@integer/google_play_services_version" />
+
+        <activity android:name="com.iaai.onyard.activity.AccountPreferencesActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" 
+            android:theme="@style/Theme.Custom">
+            <intent-filter>
+                <action android:name="com.iaai.onyard.account.ACCOUNT_SETUP" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.iaai.onyard.activity.StockPagerActivity"
+            android:label="@string/app_name"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.iaai.onyard.activity.SearchPagerActivity"
+            android:label="@string/app_name"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.iaai.onyard.activity.VehicleListActivity"
+            android:label="@string/vehicle_list_activity_title"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.iaai.onyard.activity.VEHICLE_LIST" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.iaai.onyard.activity.VehicleMapActivity"
+            android:label="@string/app_name"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" >
+            <intent-filter>
+                <action android:name="com.iaai.onyard.activity.VEHICLE_MAP" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name="com.iaai.onyard.sync.OnDemandSyncReceiver">
+        </receiver>
+
+        <provider
+            android:exported="true"
+            android:name="com.iaai.onyardproviderimpl.provider.OnYardProvider"
+            android:authorities="com.iaai.provider.OnYard" />
+
+        <service
+            android:name="com.iaai.onyard.authenticator.AccountAuthenticatorService"
+            android:exported="false"
+            android:process=":auth" >
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator" />
+        </service>
+        <service
+            android:name="com.iaai.onyard.sync.OnYardSyncAdapterService"
+            android:exported="false"
+            android:process=":onyard" >
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+                <action android:name="android.intent.action.SYNC"></action>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/sync_onyard" />
+        </service>
+
+        <activity
+            android:name="com.iaai.onyard.activity.CameraActivity"
+            android:label="@string/title_activity_camera"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="com.iaai.onyard.activity.ImageReviewActivity"
+            android:label="@string/title_activity_image_review"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape"  >
+        </activity>
+        <activity android:name="com.google.zxing.client.android.CaptureActivity"
+              android:screenOrientation="landscape"
+              android:clearTaskOnLaunch="true"
+              android:stateNotNeeded="true"
+              android:configChanges="orientation|keyboardHidden"
+              android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+              android:windowSoftInputMode="stateAlwaysHidden">
+		      <intent-filter>
+		        <action android:name="com.google.zxing.client.android.SCAN"/>
+		        <!--<category android:name="android.intent.category.DEFAULT"/>-->
+		      </intent-filter>
+	    </activity>
+	    
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="04a6685a93820f0c1057134ddca6db16d415c2b2"/>
+    </application>
+</manifest>

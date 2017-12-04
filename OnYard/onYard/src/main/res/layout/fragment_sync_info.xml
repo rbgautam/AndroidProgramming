@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_height="wrap_content"
+	android:layout_width="match_parent"
+	android:layout_gravity="bottom"
+    android:layout_margin="10dp"
+    android:padding="10dp"
+    android:background="@drawable/border"
+   	>
+	<TextView
+        android:id="@+id/sync_last_updated"
+        android:textSize="17sp"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+    	android:layout_height="wrap_content"
+    	android:layout_width="match_parent"
+	/>
+	<TextView
+        android:id="@+id/sync_status"
+        android:textSize="15sp"
+        android:textColor="@color/error_message_text"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:paddingBottom="5dp"
+    	android:layout_height="wrap_content"
+    	android:layout_width="match_parent"
+	/>	
+    <TextView
+        android:id="@+id/sync_images_pending"
+		android:textSize="15sp"
+        android:gravity="center_horizontal"
+    	android:layout_height="wrap_content"
+    	android:layout_width="match_parent" 
+    /> 
+    
+	<TextView
+        android:id="@+id/sync_images_delay"
+		android:textSize="15sp"
+        android:gravity="center_horizontal"
+    	android:layout_height="wrap_content"
+    	android:layout_width="match_parent" 
+    	android:visibility="gone"
+    />
+	
+	<TextView
+        android:id="@+id/sync_checkin_pending"
+        android:gravity="center_horizontal"
+		android:textSize="15sp"
+    	android:layout_height="wrap_content"
+    	android:layout_width="match_parent"
+    />
+    
+    <TextView
+        android:id="@+id/sync_enhancement_pending"
+        android:gravity="center_horizontal"
+		android:textSize="15sp"
+    	android:layout_height="wrap_content"
+    	android:layout_width="match_parent"
+    />
+    
+    <TextView
+        android:id="@+id/sync_location_pending"
+        android:gravity="center_horizontal"
+		android:textSize="15sp"
+    	android:layout_height="wrap_content"
+    	android:layout_width="match_parent"
+    />
+    
+    <TextView
+        android:id="@+id/sync_setsale_pending"
+        android:gravity="center_horizontal"
+		android:textSize="15sp"
+    	android:layout_height="wrap_content"
+    	android:layout_width="match_parent"
+    />
+
+    <Button
+        android:id="@+id/sync_button"
+        android:text="@string/sync_button_caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+	/>  		             
+</LinearLayout>    		

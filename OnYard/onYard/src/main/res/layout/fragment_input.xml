@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/light_gray_background" >
+    
+		<View android:layout_width="match_parent"
+		    android:layout_height="3dp"
+		    android:background="@drawable/shadow_gradient"
+		    android:rotation="180"/>
+		
+		<LinearLayout android:layout_height="wrap_content"
+		    android:layout_width="match_parent"
+		    android:orientation="vertical"
+    		android:id="@+id/input_layout">
+		    
+		</LinearLayout>
+    
+
+</LinearLayout>

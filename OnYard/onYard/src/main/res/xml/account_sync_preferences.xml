@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    
+	<!-- General Header -->
+	<PreferenceCategory
+	    android:title="GENERAL">
+		<EditTextPreference android:key="@string/override_branch_number_pref" 
+			android:title="Branch number"
+			android:summary="Choose which branch's data to sync" 
+			android:defaultValue="0"
+			android:maxLength="3"
+			android:inputType="number" />
+		</PreferenceCategory>
+
+	<!-- Camera Header -->
+	<PreferenceCategory
+	    android:title="CAMERA">
+				
+		<CheckBoxPreference android:key="@string/voice_commands_caption"
+		    android:title="Voice Commands"
+		    android:summary="Enables Voice Capturing in Camera"
+		    android:defaultValue="false" />
+		
+		<EditTextPreference android:key="@string/capture_keyword_caption"
+		    android:title="Capture Keyword"
+		    android:summary="Choose the voice capture keyword"
+		    android:enabled="false" />
+		</PreferenceCategory>
+	<!--  Sync Header -->		
+	<PreferenceCategory
+	    android:title="TOOLS">
+		
+		<CheckBoxPreference android:key="@string/delete_oldest_pending_sync_pref"
+			android:summary="Delete oldest submitted data on next sync" 
+			android:title="Delete oldest data"
+			android:defaultValue="false" />
+		
+		<Preference android:key="@string/full_sync_pref" 
+			android:title="Force data reset"
+			android:summary="Press here to reset all OnYard data" 
+			/>
+		</PreferenceCategory>
+</PreferenceScreen>

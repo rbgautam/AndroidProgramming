@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+  	android:background="@drawable/listview_selector">
+  	<LinearLayout android:orientation="vertical"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight=".9"
+	  	android:layout_marginLeft="10dp"
+	  	android:layout_marginTop="10dp"
+	  	android:layout_marginBottom="10dp">
+
+		<LinearLayout android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/setsale_stock_vnn_row">
+  	    
+			<TextView android:text="@string/stock_text" 
+				android:layout_width="0dp"
+				android:layout_weight="0.25"
+				android:layout_height="wrap_content" 
+				android:id="@+id/setsale_stock_row"
+				android:textSize="16sp"
+				android:textColor="@color/list_view_text_strong">
+			</TextView>
+			<TextView android:text="@string/ymm_text" 
+				android:layout_width="0dp"
+				android:layout_weight="0.75"
+				android:layout_height="wrap_content" 
+				android:id="@+id/setsale_year_make_model_row"
+				android:textSize="16sp"
+				android:textColor="@color/list_view_text_strong">
+			</TextView>
+		</LinearLayout>
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:id="@+id/setsale_vin_row"
+			android:textSize="13sp"
+			android:textColor="@color/list_view_text_normal">
+		</TextView>
+		<TextView android:text="@string/provider_text" 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:id="@+id/setsale_provider_row"
+			android:textSize="13sp"
+			android:textColor="@color/list_view_text_normal">
+		</TextView>
+	</LinearLayout>
+	<ImageView android:layout_height="wrap_content" 
+	    android:src="@drawable/chevron_button" 
+	    android:id="@+id/img_list_arrow" 
+	    android:layout_width="wrap_content"
+	    android:layout_gravity="right|center_vertical"
+	    android:layout_marginRight="15dp">
+    </ImageView>
+</LinearLayout>

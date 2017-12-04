@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+  	android:background="@drawable/listview_selector">
+  	<LinearLayout android:orientation="vertical"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight=".9"
+	  	android:layout_marginLeft="10dp"
+	  	android:layout_marginTop="10dp"
+	  	android:layout_marginBottom="10dp">
+
+		<LinearLayout android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+  	    
+			<TextView android:layout_width="0dp"
+				android:layout_weight="0.25"
+				android:layout_height="wrap_content" 
+				android:id="@+id/location_stock"
+				android:textSize="16sp"
+				android:textColor="@color/list_view_text_strong">
+			</TextView>
+			<TextView android:layout_width="0dp"
+				android:layout_weight="0.75"
+				android:layout_height="wrap_content" 
+				android:id="@+id/location_year_make_model"
+				android:textSize="16sp"
+				android:textColor="@color/list_view_text_strong">
+			</TextView>
+		</LinearLayout>
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:id="@+id/location_provider"
+			android:textSize="13sp"
+			android:textColor="@color/list_view_text_normal">
+		</TextView>
+		<RelativeLayout android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+  	    
+			<TextView android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:id="@+id/location_sale_doc"
+				android:textSize="16sp"
+				android:textColor="@color/list_view_text_normal"
+				android:layout_alignParentLeft="true">
+			</TextView>
+			<TextView android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:id="@+id/location_run_drive"
+				android:textSize="16sp"
+				android:textColor="@color/list_view_text_normal"
+				android:layout_centerHorizontal="true">
+			</TextView>
+			<TextView android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:id="@+id/location_location"
+				android:textSize="16sp"
+				android:textColor="@color/list_view_text_normal"
+				android:layout_alignParentRight="true">
+			</TextView>
+		</RelativeLayout>
+	</LinearLayout>
+	<ImageView android:layout_height="wrap_content" 
+	    android:src="@drawable/chevron_button" 
+	    android:id="@+id/img_list_arrow" 
+	    android:layout_width="wrap_content"
+	    android:layout_gravity="right|center_vertical"
+	    android:layout_marginRight="15dp">
+    </ImageView>
+</LinearLayout>
