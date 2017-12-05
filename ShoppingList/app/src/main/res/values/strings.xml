@@ -3,4 +3,8 @@
     <string name="action_settings">Settings</string>
     <string name="activity_shopping_list_edit">Edit Item</string>
     <string name="action_send_email">Send as email</string>
+    <string name="title_activity_main">Shopping List</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>
