@@ -71,7 +71,8 @@ public class MainActivity extends AppCompatActivity
         mRecyclerViewItems = (RecyclerView) findViewById(R.id.list_menu_items);
         mLinearLayoutManager = new LinearLayoutManager(this);
 
-        mGridLayoutManager = new GridLayoutManager(this,2);
+        mGridLayoutManager = new GridLayoutManager(this,
+                getResources().getInteger(R.integer.col_span));
 
 
         List<NoteInfo> notes = DataManager.getInstance().getNotes();

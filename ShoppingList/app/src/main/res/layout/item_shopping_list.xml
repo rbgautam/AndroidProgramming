@@ -40,7 +40,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="2dp"
-                android:tint="#F05A28"
+                android:tint="@color/appThemeColor"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintLeft_toLeftOf="@+id/textShopList"
                 app:layout_constraintRight_toRightOf="@+id/textShopList"
