@@ -28,8 +28,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:tint="@color/cardview_light_background"
-        app:backgroundTint="@color/appThemeColor"
-        app:srcCompat="@drawable/ic_add_box_black_24dp" />
+        tools:style="@style/addFab" />
 
 </android.support.design.widget.CoordinatorLayout>
