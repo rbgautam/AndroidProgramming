@@ -2,6 +2,7 @@ package us.forgeinnovations.deltaman.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.GridLayoutManager;
@@ -47,6 +48,9 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        PreferenceManager.setDefaultValues(this,R.xml.pref_general,false);
+        PreferenceManager.setDefaultValues(this,R.xml.pref_data_sync,false);
+        PreferenceManager.setDefaultValues(this,R.xml.pref_notification,false);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
