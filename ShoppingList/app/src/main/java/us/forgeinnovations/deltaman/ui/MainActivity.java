@@ -172,7 +172,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_course) {
             displayCourses();
         } else if (id == R.id.nav_share) {
-            handleSelection("Sharing data");
+            handleShare();
         }else if (id == R.id.nav_send) {
             handleSelection("Send data by email");
         }
@@ -182,6 +182,14 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    private void handleShare() {
+        View view = findViewById(R.id.list_menu_items);
+        String message = "Share to : "+PreferenceManager.getDefaultSharedPreferences(this).getString("user_pref_social_network","");
+        Snackbar.make(view,message,Snackbar.LENGTH_LONG).show();
+
+    }
+
 
     private void handleSelection(String message) {
         View view = findViewById(R.id.list_menu_items);
