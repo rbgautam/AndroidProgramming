@@ -1,6 +1,7 @@
 package us.forgeinnovations.deltaman.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
@@ -17,6 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -67,7 +69,20 @@ public class MainActivity extends AppCompatActivity
     protected void onResume() {
         super.onResume();
         mProductRecyclerAdapter.notifyDataSetChanged();
+        updateNavheader();
     }
+
+    private void updateNavheader() {
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
+        TextView textuserName = (TextView) headerView.findViewById(R.id.text_edit_displayname);
+        TextView textUserEmail = (TextView) headerView.findViewById(R.id.text_edit_user_email);
+        SharedPreferences pref =  PreferenceManager.getDefaultSharedPreferences(this);
+
+        textuserName.setText(pref.getString("user_display_name",""));
+        textUserEmail.setText(pref.getString("user_email_address",""));
+    }
+
 
     private void initializeDisplayContent() {
 
