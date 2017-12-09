@@ -27,7 +27,7 @@ public final class ShopkeeperDatabaseContract {
         public static final String COLUMN_NOTE_TEXT = "note_text";
         public static final String COLUMN_COURSE_ID = "course_id";
 
-        public static final String CREATE_TABLE_NOTE_SQL = "CREATE TABLE "+TABLE_NAME + " ("+_ID+" INTEGER PRIMARY KEY, "+COLUMN_NOTE_TITLE+" TEXT NOT NULL,"+COLUMN_NOTE_TEXT+"TEXT ,"+COLUMN_COURSE_ID+" TEXT NOT NULL)";
+        public static final String CREATE_TABLE_NOTE_SQL = "CREATE TABLE "+TABLE_NAME + " ("+_ID+" INTEGER PRIMARY KEY, "+COLUMN_NOTE_TITLE+" TEXT NOT NULL,"+COLUMN_NOTE_TEXT+" TEXT ,"+COLUMN_COURSE_ID+" TEXT NOT NULL)";
 
 
     }

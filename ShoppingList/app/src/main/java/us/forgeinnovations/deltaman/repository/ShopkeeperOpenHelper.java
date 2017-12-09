@@ -23,8 +23,9 @@ public class ShopkeeperOpenHelper extends SQLiteOpenHelper {
         db.execSQL(ShopkeeperDatabaseContract.NoteInfoEntry.CREATE_TABLE_NOTE_SQL);
 
         DatabaseDataWorker dbw = new DatabaseDataWorker(db);
-        dbw.insertCourses();
         dbw.insertSampleNotes();
+        dbw.insertCourses();
+
         
     }
 
