@@ -2,6 +2,7 @@ package us.forgeinnovations.deltaman.ui;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
@@ -25,6 +26,7 @@ import java.util.List;
 import us.forgeinnovations.deltaman.notes.CourseInfo;
 import us.forgeinnovations.deltaman.notes.DataManager;
 import us.forgeinnovations.deltaman.notes.NoteInfo;
+import us.forgeinnovations.deltaman.repository.ShopkeeperOpenHelper;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity
     private RecyclerView mRecyclerViewItems;
     private LinearLayoutManager mLinearLayoutManager;
     private GridLayoutManager mGridLayoutManager;
+    private ShopkeeperOpenHelper mDatabaseOpenHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mDatabaseOpenHelper = new ShopkeeperOpenHelper(this);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +68,12 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         initializeDisplayContent();
+    }
+
+    @Override
+    protected void onDestroy() {
+        mDatabaseOpenHelper.close();
+        super.onDestroy();
     }
 
     @Override
@@ -107,6 +118,7 @@ public class MainActivity extends AppCompatActivity
     private void displayNotes() {
         mRecyclerViewItems.setLayoutManager(mLinearLayoutManager);
         mRecyclerViewItems.setAdapter(mProductRecyclerAdapter);
+        SQLiteDatabase sqldb =  mDatabaseOpenHelper.getReadableDatabase();
 
         selectNavigationMenuItem(R.id.nav_notes);
 
