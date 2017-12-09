@@ -1,9 +1,17 @@
 package us.forgeinnovations.deltaman.repository;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import us.forgeinnovations.deltaman.models.shop.*;
+import us.forgeinnovations.deltaman.notes.CourseInfo;
+import us.forgeinnovations.deltaman.notes.NoteInfo;
+import us.forgeinnovations.deltaman.repository.ShopkeeperDatabaseContract.CourseInfoEntry;
+
+import static us.forgeinnovations.deltaman.repository.ShopkeeperDatabaseContract.*;
 
 /**
  * Created by Deltaman.
@@ -14,14 +22,66 @@ public class ShoppingListDataManager {
 
     private List<ShoplistInfo> mCourses = new ArrayList<>();
     private List<ItemInfo> mNotes = new ArrayList<>();
+    private static Cursor mCourseCursor;
+    private static Cursor mNoteCursor;
 
     public static ShoppingListDataManager getInstance() {
         if(ourInstance == null) {
             ourInstance = new ShoppingListDataManager();
-            ourInstance.initializeCourses();
-            ourInstance.initializeExampleNotes();
+//            ourInstance.initializeCourses();
+//            ourInstance.initializeExampleNotes();
         }
         return ourInstance;
+    }
+
+    public static void loadFromDatabase(ShopkeeperOpenHelper dbHelper){
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        final String[] courseColumns = {CourseInfoEntry.COLUMN_COURSE_ID, CourseInfoEntry.COLUMN_COURSE_TITLE};
+        mCourseCursor = db.query(CourseInfoEntry.TABLE_NAME, courseColumns, null, null, null, null, null);
+
+        loadCoursesFromDatabase(mCourseCursor);
+        final String[] noteColumns = {NoteInfoEntry.COLUMN_COURSE_ID, NoteInfoEntry.COLUMN_NOTE_TEXT, NoteInfoEntry.COLUMN_NOTE_TITLE};
+        mNoteCursor = db.query(NoteInfoEntry.TABLE_NAME, noteColumns, null, null, null, null, null);
+        loadNotesFromDatabase(mNoteCursor);
+    }
+
+    private static void loadNotesFromDatabase(Cursor mNoteCursor) {
+        int noteTitlepos = mNoteCursor.getColumnIndex(NoteInfoEntry.COLUMN_NOTE_TITLE);
+        int noteTextPos = mNoteCursor.getColumnIndex(NoteInfoEntry.COLUMN_NOTE_TEXT);
+        int courseIdPos = mNoteCursor.getColumnIndex(NoteInfoEntry.COLUMN_COURSE_ID);
+
+        ShoppingListDataManager dm = getInstance();
+        dm.mNotes.clear();
+
+        while (mNoteCursor.moveToNext()){
+            String noteTitle = mNoteCursor.getString(noteTitlepos);
+            String noteText = mNoteCursor.getString(noteTextPos);
+            String courseId = mNoteCursor.getString(courseIdPos);
+            ShoplistInfo noteCourse = dm.getCourse(courseId);
+
+            ShoplistInfo slist = new ShoplistInfo(courseId,noteTitle,null);
+            dm.mCourses.add(slist);
+        }
+
+        mNoteCursor.close();
+
+    }
+
+    private static void loadCoursesFromDatabase(Cursor cursor) {
+        int courseIdPos = cursor.getColumnIndex(CourseInfoEntry.COLUMN_COURSE_ID);
+        int courseTitlePos = cursor.getColumnIndex(CourseInfoEntry.COLUMN_COURSE_TITLE);
+        ShoppingListDataManager dm = getInstance();
+        dm.mCourses.clear();
+
+        while(cursor.moveToNext()){
+            String courseId = cursor.getString(courseIdPos);
+            String courseTitle = cursor.getString(courseTitlePos);
+
+            ItemInfo prod = new ItemInfo(null,courseId,courseTitle);
+            dm.mNotes.add(prod);
+        }
+        cursor.close();
+
     }
 
     public String getCurrentUserName() {

@@ -27,6 +27,7 @@ import us.forgeinnovations.deltaman.notes.CourseInfo;
 import us.forgeinnovations.deltaman.notes.DataManager;
 import us.forgeinnovations.deltaman.notes.NoteInfo;
 import us.forgeinnovations.deltaman.repository.ShopkeeperOpenHelper;
+import us.forgeinnovations.deltaman.repository.ShoppingListDataManager;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -97,6 +98,7 @@ public class MainActivity extends AppCompatActivity
 
     private void initializeDisplayContent() {
 
+        ShoppingListDataManager.loadFromDatabase(mDatabaseOpenHelper);
 
         mRecyclerViewItems = (RecyclerView) findViewById(R.id.list_menu_items);
         mLinearLayoutManager = new LinearLayoutManager(this);
@@ -118,7 +120,7 @@ public class MainActivity extends AppCompatActivity
     private void displayNotes() {
         mRecyclerViewItems.setLayoutManager(mLinearLayoutManager);
         mRecyclerViewItems.setAdapter(mProductRecyclerAdapter);
-        SQLiteDatabase sqldb =  mDatabaseOpenHelper.getReadableDatabase();
+        //SQLiteDatabase sqldb =  mDatabaseOpenHelper.getReadableDatabase();
 
         selectNavigationMenuItem(R.id.nav_notes);
 
