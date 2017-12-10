@@ -37,11 +37,11 @@ public class ShoppingListDataManager {
     public static void loadFromDatabase(ShopkeeperOpenHelper dbHelper){
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         final String[] courseColumns = {CourseInfoEntry.COLUMN_COURSE_ID, CourseInfoEntry.COLUMN_COURSE_TITLE};
-        mCourseCursor = db.query(CourseInfoEntry.TABLE_NAME, courseColumns, null, null, null, null, null);
+        mCourseCursor = db.query(CourseInfoEntry.TABLE_NAME, courseColumns, null, null, null, null, CourseInfoEntry.COLUMN_COURSE_TITLE + " DESC");
 
         loadCoursesFromDatabase(mCourseCursor);
         final String[] noteColumns = {NoteInfoEntry.COLUMN_COURSE_ID, NoteInfoEntry.COLUMN_NOTE_TEXT, NoteInfoEntry.COLUMN_NOTE_TITLE};
-        mNoteCursor = db.query(NoteInfoEntry.TABLE_NAME, noteColumns, null, null, null, null, null);
+        mNoteCursor = db.query(NoteInfoEntry.TABLE_NAME, noteColumns, null, null, null, null,NoteInfoEntry.COLUMN_COURSE_ID+","+ NoteInfoEntry.COLUMN_NOTE_TITLE);
         loadNotesFromDatabase(mNoteCursor);
     }
 
