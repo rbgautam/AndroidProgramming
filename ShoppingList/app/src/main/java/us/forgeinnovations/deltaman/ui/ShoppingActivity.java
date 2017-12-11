@@ -73,6 +73,8 @@ public class ShoppingActivity extends AppCompatActivity {
                 new int[]{android.R.id.text1},0);
         mSimpleAdapterCourse.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
+
+
         mSpinnerShoppingType.setAdapter(mSimpleAdapterCourse);
 
         loadCourseData();
@@ -99,7 +101,7 @@ public class ShoppingActivity extends AppCompatActivity {
     private void loadCourseData() {
         SQLiteDatabase db = mDbOpenHelper.getReadableDatabase();
 
-        final String[] columns = {CourseInfoEntry.COLUMN_COURSE_TITLE, CourseInfoEntry.COLUMN_COURSE_ID,CourseInfoEntry._ID};
+        final String[] columns = {"_ID _id",CourseInfoEntry.COLUMN_COURSE_TITLE, CourseInfoEntry.COLUMN_COURSE_ID};
         Cursor cursor = db.query(CourseInfoEntry.TABLE_NAME, columns,null,null,null,null,CourseInfoEntry.COLUMN_COURSE_TITLE);
         mSimpleAdapterCourse.changeCursor(cursor);
     }
