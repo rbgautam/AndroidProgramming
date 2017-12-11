@@ -1,18 +1,26 @@
 package us.forgeinnovations.deltaman.ui;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
 
 import java.util.List;
 
 import us.forgeinnovations.deltaman.notes.*;
+import us.forgeinnovations.deltaman.repository.ShopkeeperDatabaseContract;
+import us.forgeinnovations.deltaman.repository.ShopkeeperOpenHelper;
+
+import static us.forgeinnovations.deltaman.repository.ShopkeeperDatabaseContract.*;
 
 
 public class ShoppingActivity extends AppCompatActivity {
@@ -37,6 +45,9 @@ public class ShoppingActivity extends AppCompatActivity {
     private String mOriginalNoteCourseId;
     private String mOriginalItemDesc;
     private String mOriginalItemTitle;
+    private SimpleCursorAdapter mAdapterCourse;
+    private SimpleCursorAdapter mSimpleAdapterCourse;
+    private ShopkeeperOpenHelper mDbOpenHelper;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -52,17 +63,20 @@ public class ShoppingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_shopping);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        mDbOpenHelper = new ShopkeeperOpenHelper(this);
         mSpinnerShoppingType = (Spinner) findViewById(R.id.spinner_shoppingtype);
+//        List<CourseInfo> courses = DataManager.getInstance().getCourses();
 
-        List<CourseInfo> courses = DataManager.getInstance().getCourses();
+//        mAdapterCourses =
+// new ArrayAdapter<CourseInfo>(this,android.R.layout.simple_spinner_item,courses);
+        mSimpleAdapterCourse = new SimpleCursorAdapter(this,android.R.layout.simple_spinner_item,null,new String[]{CourseInfoEntry.COLUMN_COURSE_TITLE},
+                new int[]{android.R.id.text1},0);
+        mSimpleAdapterCourse.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        mAdapterCourses = new ArrayAdapter<CourseInfo>(this,android.R.layout.simple_spinner_item,courses);
+        mSpinnerShoppingType.setAdapter(mSimpleAdapterCourse);
 
-        mAdapterCourses.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        loadCourseData();
 
-        mSpinnerShoppingType.setAdapter(mAdapterCourses);
-        
         readDisplayStateValues();
         if(savedInstanceState == null)
             saveOriginalNotesValues();
@@ -80,6 +94,14 @@ public class ShoppingActivity extends AppCompatActivity {
             createNewNote();
         }
 
+    }
+
+    private void loadCourseData() {
+        SQLiteDatabase db = mDbOpenHelper.getReadableDatabase();
+
+        final String[] columns = {CourseInfoEntry.COLUMN_COURSE_TITLE, CourseInfoEntry.COLUMN_COURSE_ID,CourseInfoEntry._ID};
+        Cursor cursor = db.query(CourseInfoEntry.TABLE_NAME, columns,null,null,null,null,CourseInfoEntry.COLUMN_COURSE_TITLE);
+        mSimpleAdapterCourse.changeCursor(cursor);
     }
 
     private void restoreOriginalStateValues(Bundle savedInstanceState) {
@@ -167,7 +189,7 @@ public class ShoppingActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        mAdapterCourses.notifyDataSetChanged();
+        mSimpleAdapterCourse.notifyDataSetChanged();
     }
 
     @Override
