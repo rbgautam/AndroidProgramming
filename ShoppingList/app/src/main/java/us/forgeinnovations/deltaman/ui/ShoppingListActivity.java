@@ -1,6 +1,8 @@
 package us.forgeinnovations.deltaman.ui;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +18,11 @@ import java.util.List;
 
 import us.forgeinnovations.deltaman.notes.DataManager;
 import us.forgeinnovations.deltaman.notes.NoteInfo;
+import us.forgeinnovations.deltaman.repository.ShopkeeperDatabaseContract;
+import us.forgeinnovations.deltaman.repository.ShopkeeperOpenHelper;
+import us.forgeinnovations.deltaman.repository.ShoppingListDataManager;
+
+import static us.forgeinnovations.deltaman.repository.ShopkeeperDatabaseContract.*;
 
 public class ShoppingListActivity extends AppCompatActivity {
 
@@ -74,7 +81,9 @@ public class ShoppingListActivity extends AppCompatActivity {
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerViewItems.setLayoutManager(linearLayoutManager);
 
-        List<NoteInfo> notes = DataManager.getInstance().getNotes();
+        ShopkeeperOpenHelper dbHelper = new ShopkeeperOpenHelper(this);
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor notes = db.query(NoteInfoEntry.TABLE_NAME,new String[]{NoteInfoEntry.COLUMN_NOTE_TITLE,NoteInfoEntry.COLUMN_COURSE_ID},null,null,null,null,null);
 
         mProductRecyclerAdapter = new ProductRecyclerAdapter(this,notes);
 

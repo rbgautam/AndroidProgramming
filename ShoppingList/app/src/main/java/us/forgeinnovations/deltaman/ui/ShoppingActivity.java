@@ -19,6 +19,7 @@ import java.util.List;
 import us.forgeinnovations.deltaman.notes.*;
 import us.forgeinnovations.deltaman.repository.ShopkeeperDatabaseContract;
 import us.forgeinnovations.deltaman.repository.ShopkeeperOpenHelper;
+import us.forgeinnovations.deltaman.repository.ShoppingListDataManager;
 
 import static us.forgeinnovations.deltaman.repository.ShopkeeperDatabaseContract.*;
 
@@ -122,6 +123,7 @@ public class ShoppingActivity extends AppCompatActivity {
     }
 
     private void createNewNote() {
+
         DataManager dm = DataManager.getInstance();
         mItemPosition = dm.createNewNote();
         mItem = dm.getNotes().get(mItemPosition);

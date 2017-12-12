@@ -1,7 +1,12 @@
 package us.forgeinnovations.deltaman.notes;
 
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import us.forgeinnovations.deltaman.repository.ShopkeeperOpenHelper;
 
 /**
  * Created by Deltaman.
@@ -12,6 +17,7 @@ public class DataManager {
 
     private List<CourseInfo> mCourses = new ArrayList<>();
     private List<NoteInfo> mNotes = new ArrayList<>();
+    public static ShopkeeperOpenHelper mDbOpenHelper = null;
 
     public static DataManager getInstance() {
         if(ourInstance == null) {

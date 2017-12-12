@@ -20,10 +20,10 @@ import static us.forgeinnovations.deltaman.repository.ShopkeeperDatabaseContract
 public class ShoppingListDataManager {
     private static ShoppingListDataManager ourInstance = null;
 
-    private List<ShoplistInfo> mCourses = new ArrayList<>();
+    public List<ShoplistInfo> mCourses = new ArrayList<>();
     private List<ItemInfo> mNotes = new ArrayList<>();
-    private static Cursor mCourseCursor;
-    private static Cursor mNoteCursor;
+    public static Cursor mCourseCursor;
+    public static Cursor mNoteCursor;
 
     public static ShoppingListDataManager getInstance() {
         if(ourInstance == null) {

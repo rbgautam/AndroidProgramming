@@ -2,6 +2,7 @@ package us.forgeinnovations.deltaman.ui;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -26,6 +27,8 @@ import java.util.List;
 import us.forgeinnovations.deltaman.notes.CourseInfo;
 import us.forgeinnovations.deltaman.notes.DataManager;
 import us.forgeinnovations.deltaman.notes.NoteInfo;
+import us.forgeinnovations.deltaman.repository.ShopkeeperDatabaseContract;
+import us.forgeinnovations.deltaman.repository.ShopkeeperDatabaseContract.NoteInfoEntry;
 import us.forgeinnovations.deltaman.repository.ShopkeeperOpenHelper;
 import us.forgeinnovations.deltaman.repository.ShoppingListDataManager;
 
@@ -107,14 +110,21 @@ public class MainActivity extends AppCompatActivity
                 getResources().getInteger(R.integer.col_span));
 
 
-        List<NoteInfo> notes = DataManager.getInstance().getNotes();
-
+        //List<NoteInfo> notes = DataManager.getInstance().getNotes();
+        Cursor notes = getNotesFromDb();
         mProductRecyclerAdapter = new ProductRecyclerAdapter(this,notes);
         List<CourseInfo> courses = DataManager.getInstance().getCourses();
         mShoplistRecyclerAdapter = new ShoplistRecyclerAdapter(this, courses);
 
         displayNotes();
 
+    }
+
+    private Cursor getNotesFromDb( ) {
+
+        SQLiteDatabase db =  mDatabaseOpenHelper.getReadableDatabase();
+        Cursor cursor =  db.query(NoteInfoEntry.TABLE_NAME,new String[]{NoteInfoEntry.COLUMN_NOTE_TITLE,NoteInfoEntry.COLUMN_COURSE_ID},null,null,null,null,null);
+        return cursor;
     }
 
     private void displayNotes() {
