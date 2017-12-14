@@ -32,6 +32,8 @@ import us.forgeinnovations.deltaman.repository.ShopkeeperDatabaseContract.NoteIn
 import us.forgeinnovations.deltaman.repository.ShopkeeperOpenHelper;
 import us.forgeinnovations.deltaman.repository.ShoppingListDataManager;
 
+import static us.forgeinnovations.deltaman.repository.ShopkeeperDatabaseContract.*;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private ProductRecyclerAdapter mProductRecyclerAdapter;
@@ -123,7 +125,11 @@ public class MainActivity extends AppCompatActivity
     private Cursor getNotesFromDb( ) {
 
         SQLiteDatabase db =  mDatabaseOpenHelper.getReadableDatabase();
-        Cursor cursor =  db.query(NoteInfoEntry.TABLE_NAME,new String[]{NoteInfoEntry.COLUMN_NOTE_TITLE,NoteInfoEntry.COLUMN_COURSE_ID},null,null,null,null,null);
+        String[] columns = {NoteInfoEntry.getQualifiedColName(NoteInfoEntry.COLUMN_NOTE_TITLE),NoteInfoEntry.getQualifiedColName(NoteInfoEntry.COLUMN_COURSE_ID),CourseInfoEntry.getQualifiedColName(CourseInfoEntry.COLUMN_COURSE_TITLE)};
+
+        // NoteInfo join CourseInfo on NoteInfoEntry.CourseID = CourseInfoEntry.CourseId
+        String joinQuery = NoteInfoEntry.TABLE_NAME + " join " + CourseInfoEntry.TABLE_NAME + " ON " + NoteInfoEntry.getQualifiedColName(NoteInfoEntry.COLUMN_COURSE_ID) +"="+ CourseInfoEntry.getQualifiedColName(CourseInfoEntry.COLUMN_COURSE_ID);
+        Cursor cursor =  db.query(joinQuery, columns,null,null,null,null,null);
         return cursor;
     }
 

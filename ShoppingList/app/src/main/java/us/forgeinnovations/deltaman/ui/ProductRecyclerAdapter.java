@@ -44,9 +44,9 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
     public void onBindViewHolder(ViewHolder holder, int position) {
 
         mNotes.moveToPosition(position);
-        int courseidpos = mNotes.getColumnIndex(NoteInfoEntry.COLUMN_COURSE_ID);
+        int coursetitlepos = mNotes.getColumnIndex(CourseInfoEntry.COLUMN_COURSE_TITLE);
         int notetitlepos = mNotes.getColumnIndex(NoteInfoEntry.COLUMN_NOTE_TITLE);
-        holder.mTextCourse.setText(mNotes.getString(courseidpos));
+        holder.mTextCourse.setText(mNotes.getString(coursetitlepos));
         holder.mTextTitle.setText(mNotes.getString(notetitlepos));
         holder.mCurrentPosition = position;
     }
