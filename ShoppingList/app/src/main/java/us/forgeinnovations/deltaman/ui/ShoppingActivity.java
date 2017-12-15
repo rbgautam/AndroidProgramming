@@ -49,6 +49,7 @@ public class ShoppingActivity extends AppCompatActivity {
     private SimpleCursorAdapter mAdapterCourse;
     private SimpleCursorAdapter mSimpleAdapterCourse;
     private ShopkeeperOpenHelper mDbOpenHelper;
+    private Cursor mSpinnerCursor;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -80,6 +81,8 @@ public class ShoppingActivity extends AppCompatActivity {
 
         loadCourseData();
 
+
+
         readDisplayStateValues();
         if(savedInstanceState == null)
             saveOriginalNotesValues();
@@ -103,8 +106,8 @@ public class ShoppingActivity extends AppCompatActivity {
         SQLiteDatabase db = mDbOpenHelper.getReadableDatabase();
 
         final String[] columns = {"_ID _id",CourseInfoEntry.COLUMN_COURSE_TITLE, CourseInfoEntry.COLUMN_COURSE_ID};
-        Cursor cursor = db.query(CourseInfoEntry.TABLE_NAME, columns,null,null,null,null,CourseInfoEntry.COLUMN_COURSE_TITLE);
-        mSimpleAdapterCourse.changeCursor(cursor);
+        mSpinnerCursor = db.query(CourseInfoEntry.TABLE_NAME, columns,null,null,null,null, CourseInfoEntry.COLUMN_COURSE_TITLE);
+        mSimpleAdapterCourse.changeCursor(mSpinnerCursor);
     }
 
     private void restoreOriginalStateValues(Bundle savedInstanceState) {
@@ -132,9 +135,21 @@ public class ShoppingActivity extends AppCompatActivity {
     private void displayNote(Spinner shoppingType, EditText textItemName, EditText textItemDesc) {
         List<CourseInfo> courses = DataManager.getInstance().getCourses();
 
-        int itemIndex = POSITION_NOT_SET;
+        int itemIndex = 0;
 
-        itemIndex = courses.indexOf(mItem.getCourse());
+        //itemIndex = courses.indexOf(mItem.getCourse());
+
+        boolean more = mSpinnerCursor.moveToFirst();
+        while (more){
+            int courseIdPos = mSpinnerCursor.getColumnIndex(CourseInfoEntry.COLUMN_COURSE_ID);
+            String cursorCid = mSpinnerCursor.getString(courseIdPos);
+            String mItemCid = mItem.getCourse().getCourseId();
+            if(cursorCid.equals(mItemCid) )
+                break;
+
+            itemIndex++;
+            more = mSpinnerCursor.moveToNext();
+        }
 
 
         shoppingType.setSelection(itemIndex);
