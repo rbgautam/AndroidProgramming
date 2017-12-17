@@ -1,6 +1,9 @@
 package us.forgeinnovations.deltaman.ui;
 
+import android.app.LoaderManager;
+import android.content.CursorLoader;
 import android.content.Intent;
+import android.content.Loader;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -24,7 +27,7 @@ import us.forgeinnovations.deltaman.repository.ShoppingListDataManager;
 import static us.forgeinnovations.deltaman.repository.ShopkeeperDatabaseContract.*;
 
 
-public class ShoppingActivity extends AppCompatActivity {
+public class ShoppingActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
     public static final String ITEM_INFO = "us.forgeinnovations.deltaman.ui.ITEM_INFO";
     public static final String ITEM_POSITION = "us.forgeinnovations.deltaman.ui.ITEM_POSITION";
@@ -33,6 +36,7 @@ public class ShoppingActivity extends AppCompatActivity {
     public static final String ORIGINAL_NOTE_COURSE_ID = "us.forgeinnovations.deltaman.ui.ORIGINAL_NOTE_COURSE_ID";
     public static final String ORIGINAL_ITEM_TITLE = "us.forgeinnovations.deltaman.ui.ORIGINAL_ITEM_TITLE";
     public static final String ORIGINAL_ITEM_TEXT = "us.forgeinnovations.deltaman.ui.ORIGINAL_ITEM_TEXT";
+    public static final int LOADER_COURSES = 0;
 
 
     private NoteInfo mItem;
@@ -79,8 +83,9 @@ public class ShoppingActivity extends AppCompatActivity {
 
         mSpinnerShoppingType.setAdapter(mSimpleAdapterCourse);
 
-        loadCourseData();
+        //loadCourseData();
 
+        getLoaderManager().initLoader(LOADER_COURSES,null,this);
 
 
         readDisplayStateValues();
@@ -138,25 +143,28 @@ public class ShoppingActivity extends AppCompatActivity {
         int itemIndex = 0;
 
         //itemIndex = courses.indexOf(mItem.getCourse());
+        if(mSpinnerCursor != null) {
 
-        boolean more = mSpinnerCursor.moveToFirst();
-        while (more){
-            int courseIdPos = mSpinnerCursor.getColumnIndex(CourseInfoEntry.COLUMN_COURSE_ID);
-            String cursorCid = mSpinnerCursor.getString(courseIdPos);
-            String mItemCid = mItem.getCourse().getCourseId();
-            if(cursorCid.equals(mItemCid) )
-                break;
 
-            itemIndex++;
-            more = mSpinnerCursor.moveToNext();
+            boolean more = mSpinnerCursor.moveToFirst();
+            while (more) {
+                int courseIdPos = mSpinnerCursor.getColumnIndex(CourseInfoEntry.COLUMN_COURSE_ID);
+                String cursorCid = mSpinnerCursor.getString(courseIdPos);
+                String mItemCid = mItem.getCourse().getCourseId();
+                if (cursorCid.equals(mItemCid))
+                    break;
+
+                itemIndex++;
+                more = mSpinnerCursor.moveToNext();
+            }
+
+
+            shoppingType.setSelection(itemIndex);
+
+
+            textItemName.setText(mItem.getTitle());
+            textItemDesc.setText(mItem.getText());
         }
-
-
-        shoppingType.setSelection(itemIndex);
-
-
-        textItemName.setText(mItem.getTitle());
-        textItemDesc.setText(mItem.getText());
     }
 
     private void readDisplayStateValues() {
@@ -268,6 +276,49 @@ public class ShoppingActivity extends AppCompatActivity {
         intent.putExtra(Intent.EXTRA_TEXT, emailBody);
 
         startActivity(intent);
+
+    }
+
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, Bundle bundle) {
+        CursorLoader loader = null;
+        if(id == LOADER_COURSES)
+            loader = createloaderCourses();
+        return loader;
+    }
+
+    private CursorLoader createloaderCourses() {
+
+        return new CursorLoader(this){
+            @Override
+            public Cursor loadInBackground() {
+                SQLiteDatabase db = mDbOpenHelper.getReadableDatabase();
+
+                final String[] columns = {"_ID _id",CourseInfoEntry.COLUMN_COURSE_TITLE, CourseInfoEntry.COLUMN_COURSE_ID};
+                return  db.query(CourseInfoEntry.TABLE_NAME, columns,null,null,null,null, CourseInfoEntry.COLUMN_COURSE_TITLE);
+
+            }
+        };
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
+
+        if(loader.getId() == LOADER_COURSES){
+            mSpinnerCursor = cursor;
+            mSimpleAdapterCourse.changeCursor(mSpinnerCursor);
+            displayNote(mSpinnerShoppingType,mTextItemName,mTextItemDesc);
+        }
+
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+
+        if(loader.getId()== LOADER_COURSES){
+            if(mSpinnerCursor != null)
+                mSpinnerCursor.close();
+        }
 
     }
 }

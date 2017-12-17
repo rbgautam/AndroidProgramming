@@ -11,7 +11,7 @@
         <activity
             android:name=".ShoppingListActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ShoppingActivity"
             android:label="@string/activity_shopping_list_edit"
@@ -34,6 +34,12 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="us.forgeinnovations.deltaman.ui.MainActivity" />
         </activity>
+
+        <provider
+            android:name="us.forgeinnovations.deltaman.provider.ShoppingListProvider"
+            android:authorities="us.forgeinnovations.deltaman.shoppinglist.provider"
+            android:enabled="true"
+            android:exported="true"></provider>
     </application>
 
 </manifest>
