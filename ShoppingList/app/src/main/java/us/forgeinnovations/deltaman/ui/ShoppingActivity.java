@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 
 import android.support.v7.app.AppCompatActivity;
@@ -313,17 +314,21 @@ public class ShoppingActivity extends AppCompatActivity implements LoaderManager
     }
 
     private CursorLoader createloaderCourses() {
+        final String[] columns = {"_ID _id",CourseInfoEntry.COLUMN_COURSE_TITLE, CourseInfoEntry.COLUMN_COURSE_ID};
+        Uri uri = Uri.parse("content://us.forgeinnovations.deltaman.shoppinglist.provider");
 
-        return new CursorLoader(this){
-            @Override
-            public Cursor loadInBackground() {
-                SQLiteDatabase db = mDbOpenHelper.getReadableDatabase();
-
-                final String[] columns = {"_ID _id",CourseInfoEntry.COLUMN_COURSE_TITLE, CourseInfoEntry.COLUMN_COURSE_ID};
-                return  db.query(CourseInfoEntry.TABLE_NAME, columns,null,null,null,null, CourseInfoEntry.COLUMN_COURSE_TITLE);
-
-            }
-        };
+        return new CursorLoader(this,uri, columns,null,null,CourseInfoEntry.COLUMN_COURSE_TITLE );
+        //Replacing call with contentprovider
+//        return new CursorLoader(this){
+//            @Override
+//            public Cursor loadInBackground() {
+//                SQLiteDatabase db = mDbOpenHelper.getReadableDatabase();
+//
+//                final String[] columns = {"_ID _id",CourseInfoEntry.COLUMN_COURSE_TITLE, CourseInfoEntry.COLUMN_COURSE_ID};
+//                return  db.query(CourseInfoEntry.TABLE_NAME, columns,null,null,null,null, CourseInfoEntry.COLUMN_COURSE_TITLE);
+//
+//            }
+//        };
     }
 
     @Override
