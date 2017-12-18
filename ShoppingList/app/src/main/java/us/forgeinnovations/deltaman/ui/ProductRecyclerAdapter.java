@@ -46,9 +46,10 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
         mNotes.moveToPosition(position);
         int coursetitlepos = mNotes.getColumnIndex(CourseInfoEntry.COLUMN_COURSE_TITLE);
         int notetitlepos = mNotes.getColumnIndex(NoteInfoEntry.COLUMN_NOTE_TITLE);
+        int noteIdpos =  mNotes.getColumnIndex(NoteInfoEntry._ID);
         holder.mTextCourse.setText(mNotes.getString(coursetitlepos));
         holder.mTextTitle.setText(mNotes.getString(notetitlepos));
-        holder.mCurrentPosition = position;
+        holder.mCurrentPosition = Integer.getInteger(mNotes.getString(noteIdpos));
     }
 
     @Override

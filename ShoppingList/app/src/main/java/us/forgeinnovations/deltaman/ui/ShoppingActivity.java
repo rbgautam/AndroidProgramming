@@ -37,6 +37,7 @@ public class ShoppingActivity extends AppCompatActivity implements LoaderManager
     public static final String ORIGINAL_ITEM_TITLE = "us.forgeinnovations.deltaman.ui.ORIGINAL_ITEM_TITLE";
     public static final String ORIGINAL_ITEM_TEXT = "us.forgeinnovations.deltaman.ui.ORIGINAL_ITEM_TEXT";
     public static final int LOADER_COURSES = 0;
+    public static final int LOADER_NOTES = 1;
 
 
     private NoteInfo mItem;
@@ -177,7 +178,18 @@ public class ShoppingActivity extends AppCompatActivity implements LoaderManager
         mIsNewNote =  ((mItemPosition == POSITION_NOT_SET) ? true:false);
 
         if(mItemPosition != -1)
-            mItem = DataManager.getInstance().getNotes().get(mItemPosition);
+        {
+
+            //mItem = DataManager.getInstance().getNotes().get(mItemPosition);
+            getLoaderManager().initLoader(LOADER_NOTES,null,this);
+
+        }
+
+
+
+    }
+
+    private void LoadNotesFromDb(NoteInfo mItem) {
 
 
     }
@@ -284,7 +296,20 @@ public class ShoppingActivity extends AppCompatActivity implements LoaderManager
         CursorLoader loader = null;
         if(id == LOADER_COURSES)
             loader = createloaderCourses();
+        if(id == LOADER_NOTES)
+            loader = createLoaderNotes();
         return loader;
+    }
+
+    private CursorLoader createLoaderNotes() {
+        return new CursorLoader(this){
+            @Override
+            public Cursor loadInBackground() {
+                SQLiteDatabase db = mDbOpenHelper.getReadableDatabase();
+                Cursor cursor =  db.query(NoteInfoEntry.TABLE_NAME,new String[]{},"Noteid = ?",new String[]{},null,null,null);
+                return cursor;
+            }
+        };
     }
 
     private CursorLoader createloaderCourses() {

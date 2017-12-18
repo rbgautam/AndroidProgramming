@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity
     private Cursor getNotesFromDb( ) {
 
         SQLiteDatabase db =  mDatabaseOpenHelper.getReadableDatabase();
-        String[] columns = {NoteInfoEntry.getQualifiedColName(NoteInfoEntry.COLUMN_NOTE_TITLE),NoteInfoEntry.getQualifiedColName(NoteInfoEntry.COLUMN_COURSE_ID),CourseInfoEntry.getQualifiedColName(CourseInfoEntry.COLUMN_COURSE_TITLE)};
+        String[] columns = {NoteInfoEntry.getQualifiedColName(NoteInfoEntry.COLUMN_NOTE_TITLE),NoteInfoEntry.getQualifiedColName(NoteInfoEntry.COLUMN_COURSE_ID),CourseInfoEntry.getQualifiedColName(CourseInfoEntry.COLUMN_COURSE_TITLE),NoteInfoEntry.getQualifiedColName(NoteInfoEntry._ID)};
 
         // NoteInfo join CourseInfo on NoteInfoEntry.CourseID = CourseInfoEntry.CourseId
         String joinQuery = NoteInfoEntry.TABLE_NAME + " join " + CourseInfoEntry.TABLE_NAME + " ON " + NoteInfoEntry.getQualifiedColName(NoteInfoEntry.COLUMN_COURSE_ID) +"="+ CourseInfoEntry.getQualifiedColName(CourseInfoEntry.COLUMN_COURSE_ID);
