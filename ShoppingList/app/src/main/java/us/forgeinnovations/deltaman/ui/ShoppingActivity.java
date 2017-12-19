@@ -41,6 +41,7 @@ public class ShoppingActivity extends AppCompatActivity implements LoaderManager
     public static final int LOADER_NOTES = 1;
 
 
+
     private NoteInfo mItem;
     private boolean mIsNewNote;
     private int mItemPosition;
@@ -307,7 +308,11 @@ public class ShoppingActivity extends AppCompatActivity implements LoaderManager
             @Override
             public Cursor loadInBackground() {
                 SQLiteDatabase db = mDbOpenHelper.getReadableDatabase();
-                Cursor cursor =  db.query(NoteInfoEntry.TABLE_NAME,new String[]{},"Noteid = ?",new String[]{},null,null,null);
+                String noteId=  String.valueOf(mItemPosition);
+                final String[] columns = {NoteInfoEntry.COLUMN_NOTE_TITLE, NoteInfoEntry.COLUMN_NOTE_TEXT, NoteInfoEntry.COLUMN_COURSE_ID, NoteInfoEntry._ID};
+                String[] selectionArgs = {noteId};
+
+                Cursor cursor =  db.query(NoteInfoEntry.TABLE_NAME, columns,NoteInfoEntry._ID + " = ?", selectionArgs,null,null,null);
                 return cursor;
             }
         };
