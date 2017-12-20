@@ -57,6 +57,7 @@ public class ShoppingActivity extends AppCompatActivity implements LoaderManager
     private SimpleCursorAdapter mSimpleAdapterCourse;
     private ShopkeeperOpenHelper mDbOpenHelper;
     private Cursor mSpinnerCursor;
+    private Cursor mNotesCursor;
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -127,9 +128,16 @@ public class ShoppingActivity extends AppCompatActivity implements LoaderManager
     private void saveOriginalNotesValues() {
         if(mIsNewNote)
             return;
-        mOriginalNoteCourseId = mItem.getCourse().getCourseId();
-        mOriginalItemDesc = mItem.getText();
-        mOriginalItemTitle = mItem.getTitle();
+        if(mNotesCursor != null) {
+            mNotesCursor.moveToFirst();
+            int courseIdpos = mNotesCursor.getColumnIndex(NoteInfoEntry.COLUMN_COURSE_ID);
+            int itemDescPos = mNotesCursor.getColumnIndex(NoteInfoEntry.COLUMN_NOTE_TEXT);
+            int itemTitlepos = mNotesCursor.getColumnIndex(NoteInfoEntry.COLUMN_NOTE_TITLE);
+
+            mOriginalNoteCourseId = mNotesCursor.getString(courseIdpos);//mItem.getCourse().getCourseId();
+            mOriginalItemDesc = mNotesCursor.getString(itemDescPos); //mItem.getText();
+            mOriginalItemTitle = mNotesCursor.getString(itemTitlepos); //mItem.getTitle();
+        }
 
     }
 
@@ -141,19 +149,21 @@ public class ShoppingActivity extends AppCompatActivity implements LoaderManager
     }
 
     private void displayNote(Spinner shoppingType, EditText textItemName, EditText textItemDesc) {
-        List<CourseInfo> courses = DataManager.getInstance().getCourses();
+        //List<CourseInfo> courses = DataManager.getInstance().getCourses();
 
         int itemIndex = 0;
 
         //itemIndex = courses.indexOf(mItem.getCourse());
         if(mSpinnerCursor != null) {
 
+            mNotesCursor.moveToFirst();
+            String mItemCid = mNotesCursor.getString(mNotesCursor.getColumnIndex(NoteInfoEntry.COLUMN_COURSE_ID));
 
             boolean more = mSpinnerCursor.moveToFirst();
             while (more) {
                 int courseIdPos = mSpinnerCursor.getColumnIndex(CourseInfoEntry.COLUMN_COURSE_ID);
                 String cursorCid = mSpinnerCursor.getString(courseIdPos);
-                String mItemCid = mItem.getCourse().getCourseId();
+
                 if (cursorCid.equals(mItemCid))
                     break;
 
@@ -163,10 +173,16 @@ public class ShoppingActivity extends AppCompatActivity implements LoaderManager
 
 
             shoppingType.setSelection(itemIndex);
+            if(mNotesCursor != null){
 
+                mNotesCursor.moveToFirst();
+                int itemDescPos = mNotesCursor.getColumnIndex(NoteInfoEntry.COLUMN_NOTE_TEXT);
+                int itemTitlepos = mNotesCursor.getColumnIndex(NoteInfoEntry.COLUMN_NOTE_TITLE);
 
-            textItemName.setText(mItem.getTitle());
-            textItemDesc.setText(mItem.getText());
+                textItemName.setText(mNotesCursor.getString(itemDescPos));//mItem.getTitle());
+                textItemDesc.setText(mNotesCursor.getString(itemTitlepos));//mItem.getText());
+            }
+
         }
     }
 
@@ -345,6 +361,13 @@ public class ShoppingActivity extends AppCompatActivity implements LoaderManager
             displayNote(mSpinnerShoppingType,mTextItemName,mTextItemDesc);
         }
 
+        if(loader.getId() == LOADER_NOTES){
+            mNotesCursor = cursor;
+            //mSimpleAdapterCourse.changeCursor(mSpinnerCursor);
+            displayNote(mSpinnerShoppingType,mTextItemName,mTextItemDesc);
+        }
+
+
     }
 
     @Override
@@ -355,5 +378,9 @@ public class ShoppingActivity extends AppCompatActivity implements LoaderManager
                 mSpinnerCursor.close();
         }
 
+        if(loader.getId()== LOADER_NOTES){
+            if(mSpinnerCursor != null)
+                mNotesCursor.close();
+        }
     }
 }
