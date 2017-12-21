@@ -2,6 +2,7 @@ package us.forgeinnovations.deltaman.provider;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
+import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
@@ -9,10 +10,23 @@ import android.net.Uri;
 import us.forgeinnovations.deltaman.repository.ShopkeeperDatabaseContract;
 import us.forgeinnovations.deltaman.repository.ShopkeeperOpenHelper;
 
+import static us.forgeinnovations.deltaman.provider.ShoppingListContentProviderContract.*;
 import static us.forgeinnovations.deltaman.repository.ShopkeeperDatabaseContract.*;
 
 public class ShoppingListProvider extends ContentProvider {
     private ShopkeeperOpenHelper mDbOpenhelper;
+
+    private static UriMatcher sUrimatcher = new UriMatcher(UriMatcher.NO_MATCH);
+
+    public static final int COURSES = 0;
+    public static final int NOTES = 1;
+
+    static{
+        sUrimatcher.addURI(AUTHORITY, Courses.PATH, COURSES);
+        sUrimatcher.addURI(AUTHORITY,Notes.PATH, NOTES);
+
+    }
+
 
     public ShoppingListProvider() {
     }
@@ -43,14 +57,24 @@ public class ShoppingListProvider extends ContentProvider {
     }
 
     @Override
-    public Cursor query(Uri uri, String[] projection, String selection,
-                        String[] selectionArgs, String sortOrder) {
+    public Cursor query(Uri uri, String[] projection, String selection,String[] selectionArgs, String sortOrder)
+    {
         Cursor cursor = null;
         SQLiteDatabase db = mDbOpenhelper.getReadableDatabase();
+        int uriMatch = sUrimatcher.match(uri);
 
-        cursor = db.query(CourseInfoEntry.TABLE_NAME,projection,selection,selectionArgs,null,null,sortOrder);
+        switch (uriMatch){
+            case COURSES:
+                cursor = db.query(CourseInfoEntry.TABLE_NAME,projection,selection,selectionArgs,null,null,sortOrder);
+                break;
+
+            case NOTES:
+                cursor = db.query(NoteInfoEntry.TABLE_NAME,projection,selection,selectionArgs,null,null,sortOrder);
+                break;
+
+        }
+
         return cursor;
-
     }
 
     @Override
