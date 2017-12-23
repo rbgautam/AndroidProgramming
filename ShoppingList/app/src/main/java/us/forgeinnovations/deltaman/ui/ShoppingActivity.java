@@ -240,7 +240,16 @@ public class ShoppingActivity extends AppCompatActivity implements LoaderManager
         if(id == R.id.action_next) {
             moveNext();
         }
+        if(id== R.id.action_set_reminder){
+            showReminderNotification();
+        }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void showReminderNotification() {
+        //TODO: Pass notetext to the notify
+        String noteText = "Dummy string";
+        NoteReminderNotification.notify(this,noteText,0);
     }
 
     @Override

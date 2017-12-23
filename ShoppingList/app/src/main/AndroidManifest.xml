@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="us.forgeinnovations.deltaman.ui">
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -39,7 +41,7 @@
             android:name="us.forgeinnovations.deltaman.provider.ShoppingListProvider"
             android:authorities="us.forgeinnovations.deltaman.shoppinglist.provider"
             android:enabled="true"
-            android:exported="true"></provider>
+            android:exported="true" />
     </application>
 
 </manifest>
