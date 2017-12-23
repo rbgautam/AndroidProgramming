@@ -44,14 +44,20 @@ public class NoteReminderNotification {
      * @see #cancel(Context)
      */
     public static void notify(final Context context,
-                              final String noteString, final int number) {
+                              final String noteString, int noteId) {
         final Resources res = context.getResources();
 
         // This image is used as the notification's large icon (thumbnail).
         // TODO: Remove this if your notification has no relevant thumbnail.
         final Bitmap picture = BitmapFactory.decodeResource(res, R.drawable.logo);
 
-
+        Intent noteActivityIntent = new Intent(context,ShoppingActivity.class);
+        noteActivityIntent.putExtra(ShoppingActivity.ITEM_POSITION, noteId);
+        PendingIntent listInt = PendingIntent.getActivity(
+                context,
+                0,
+                new Intent(context,MainActivity.class),
+                PendingIntent.FLAG_UPDATE_CURRENT);
 
         final NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
 
@@ -97,9 +103,10 @@ public class NoteReminderNotification {
                         PendingIntent.getActivity(
                                 context,
                                 0,
-                                new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com")),
+                                noteActivityIntent,
                                 PendingIntent.FLAG_UPDATE_CURRENT))
 
+                .addAction(0,"View All notes",listInt )
                 // Automatically dismiss the notification when it is touched.
                 .setAutoCancel(true);
 

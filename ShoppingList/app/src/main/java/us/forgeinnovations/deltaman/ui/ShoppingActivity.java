@@ -249,7 +249,9 @@ public class ShoppingActivity extends AppCompatActivity implements LoaderManager
     private void showReminderNotification() {
         //TODO: Pass notetext to the notify
         String noteText = "Dummy string";
-        NoteReminderNotification.notify(this,noteText,0);
+        //TODO: Pass the current noteid
+        int noteId = 0;
+        NoteReminderNotification.notify(this,noteText,noteId);
     }
 
     @Override
